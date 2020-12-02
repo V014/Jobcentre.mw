@@ -2,6 +2,10 @@
 	session_start();
 	include ('assets/php/connection.php');
 	include('assets/php/postedjobs.php');
+    $rowPosted = $resultsPosted -> fetch_assoc();
+    $description = $rowPosted['Description'];
+    $vacancyID = $rowPosted['Id'];
+    $data = str_replace( '&', '&amp;', $description );
 ?>
 <!DOCTYPE html>
 <html>
@@ -81,32 +85,23 @@
         </ol>
         </div>
     </section>
-    <!-- Post Job -->
-    <section id="postjob" class="p-0" style="background-color: #28a745;padding: 200px 0px;font-family: 'Open Sans', sans-serif;">
-        <div class="container-fluid p-0">
-            <div class="row" style="padding: 128px 0px;">
-                <div class="col-lg-8 mx-auto text-center"><a class="js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: rgb(254,254,254);"></i></a>
-                    <h2 class="section-heading" style="color: rgb(255,255,255);">Post Job</h2>
-                    <hr class="light my-4">
-                    <p class="mb-5" style="font-family: 'Open Sans', sans-serif;color: rgb(255,255,255);">Give a description of the job you want to engage with job seeker, you will be able to modify its details after posting aswell.</p>
-
-                    <form method="post" action="assets/php/postjob.php">
-                    <div class="form-group col-md-8 offset-md-2">
-                        <textarea id="description" name="description"></textarea>
-                    </div>
-                    <div class="form-group col-md-8 offset-md-2">
-                        <button class="btn btn-light btn-lg form-control" name="post" type="submit" style="font-family: 'Open Sans', sans-serif;font-size: 16px;font-weight: 400;"><strong>&nbsp;Post</strong><br></button>
-                    </div>
+    <section id="description">
+        <div class="col-8 offset-2">
+            <form method="post" action="assets/php/description-edit.php">
+                <div class="form-group">
+                    <textarea id="desc" name="desc"><?php echo $data ?></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success form-control" name="update" value="<?php echo $vacancyID ?>" type="submit">Update</button>
+                </div>
             </form>
             <script>
             ClassicEditor
-                .create( document.querySelector( '#description' ) )
+                .create( document.querySelector( '#desc' ) )
                 .catch( error => {
                     console.error( error );
                 } );
             </script>
-        </div>
-        </div>
         </div>
     </section>
     <!-- Contact -->

@@ -306,6 +306,9 @@ include('assets/php/locum-postedjobs.php');
                 <button class="btn btn-success text-white form-control" type="submit" name="view">View</button></a>
             </div>
             <div class="form-group text-center col-md-6 offset-md-3">
+                <button class="btn btn-info text-white form-control" type="submit" name="update">Update</button></a>
+            </div>
+            <div class="form-group text-center col-md-6 offset-md-3">
                 <button class="btn btn-danger text-white form-control" type="submit" name="delete">Delete</button>
             </div>
         </form>

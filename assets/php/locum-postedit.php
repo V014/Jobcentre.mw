@@ -1,6 +1,12 @@
 <?php
 include ('connection.php');
 include ('utils.php');
+if(isset($_POST['view'])){
+	$Selected = $_POST['selected'];
+	redirect_to("../../locum_edit_vacancies.php?id=$Selected"); // redirect user to home page
+	exit();
+}
+
 if(isset($_POST['update'])){
 	$Selected = $_POST['selected'];
 	$Column = $_POST['column'];
@@ -8,7 +14,7 @@ if(isset($_POST['update'])){
 	$query = "UPDATE `locum_vacancies` SET `$Column` = '$Replacement' WHERE `Id` = $Selected";
 	$result = $connection -> query($query);
 	if($result){
-		redirect_to("../../locum_employer.php#posted"); // redirect user to home page
+		redirect_to("../../locum_employer.php#posted?reply=success"); // redirect user to home page
 		exit();
 	}else{
 		redirect_to("../../locum_employer.php#posted?reply=error"); // redirect user to home page
@@ -22,7 +28,7 @@ if(isset($_POST['delete'])){
 	$query = deleteInfo($Selected, $table);
 	$result = $connection -> query($query);
 	if($result){
-		redirect_to("../../locum_employer.php#posted"); // redirect user to home page
+		redirect_to("../../locum_employer.php#posted?reply=success"); // redirect user to home page
 		exit();
 	}else{
 		redirect_to("../../locum_employer.php#posted?reply=error"); // redirect user to home page

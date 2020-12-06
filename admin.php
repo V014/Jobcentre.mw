@@ -20,7 +20,7 @@
 </head>
 
 <body style="font-family: 'Open Sans', sans-serif;">
-    <div class="login-clean" style="padding: 200px 0px;background-image: url(&quot;assets/img/banner-2.jpeg&quot;);background-size: cover;background-repeat: no-repeat;background-attachment: fixed;">
+    <div class="login-clean" style="padding: 200px 0px;background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-attachment: fixed;">
         <form method="post" action="assets/php/admin-login.php">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><img src="assets/img/logo.png" width="180px" height="60px"></div>

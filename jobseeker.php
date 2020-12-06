@@ -91,10 +91,10 @@ include ('assets/php/appliedjobs.php');
         </div>
     </section>
     <!-- Services -->
-    <section id="services" style="padding: 230px 0px">
+    <section id="services">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#carousel"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#about"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
                     <h2 class="section-heading">At Your Service</h2>
                     <hr class="my-4" style="filter: contrast(0%);">
                 </div>
@@ -124,7 +124,7 @@ include ('assets/php/appliedjobs.php');
         </div>
     </section>
     <!-- Profile -->
-    <section id="profile" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpeg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
+    <section id="profile" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
         <div class="text-center login-card">
             <a class="js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
             <form class="text-center form-signin" method="post" action="assets/php/seeker-profile.php"><span class="reauth-email"> </span>

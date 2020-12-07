@@ -124,7 +124,7 @@ include ('assets/php/locum-appliedjobs.php');
         </div>
     </section>
     <!-- Profile -->
-    <section id="profile" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpeg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
+    <section id="profile" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
         <div class="text-center login-card"><a class="js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
             <form class="text-center form-signin" method="post" action="assets/php/locum-seeker-profile.php"><span class="reauth-email"> </span>
                 <p>Hi <strong><?php echo $fullname; ?></strong> Change your details here.</p>
@@ -269,7 +269,7 @@ include ('assets/php/locum-appliedjobs.php');
                     <h2 class="section-heading">Seek Job</h2>
                     <hr class="light my-4">
                     <p class="mb-5" style="font-family: 'Open Sans', sans-serif;">Our market offers a vast amount of opportunities for our users. You'll be able to view the details of offered jobs but you'd have to register or login to apply for them.</p>
-                <form method="post" action="locum_vacancies.php#vacancies">
+                <form method="post" action="locum_jobseeker.php#vacancies">
                     <div class="form-group col-md-4 offset-md-4"><input class="form-control" type="text" placeholder="Job Title or Skill" name="title" style="font-family: 'Open Sans', sans-serif;"></div>
                     <div class="form-group col-md-4 offset-md-4"><button class="btn btn-success btn-lg form-control" type="submit" style="font-family: 'Open Sans', sans-serif;font-size: 16px;font-weight: 400;" name="seek"><strong>&nbsp;Seek</strong><br></button></div>
                     <?php
@@ -280,33 +280,22 @@ include ('assets/php/locum-appliedjobs.php');
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
                     <div class="row product-list dev">
-                        <div class="offset-md-4 col-sm-6 col-md-4 product-item animation-element">
+                        <div class="col-sm-12 col-md-12 product-item animation-element">
                             <div class="product-container">
                                 <div class="row">
-                                    <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h2><a href="#"></a><?php echo $rowSeek['OrganisationName']; ?></h2>
+                                    <div class="col-md-4">
+                                        <a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a>
                                     </div>
-                                    <div class="col-4"><a class="small-text" href="#">Top employer</a></div>
-                                </div>
-                                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a class="small-text" href="#">82 reviews</a></div>
-                                <div class="row">
-                                    <div class="col-12">
+                                    <div id="collapser" class="collapse col-md-5">
+                                        <?php echo $rowSeek['Description']; ?>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h2><a href="#"></a><?php echo $rowSeek['OrganisationName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
-                                        <p><strong>Profession : </strong><?php echo $rowSeek['Profession']; ?></p>
-                                        <p><strong>Qualifications : </strong><?php echo $rowSeek['Qualifications']; ?></p>
-                                        <p><strong>Experience : </strong><?php echo $rowSeek['Experience']; ?></p>
-                                        <p><strong>Positions : </strong><?php echo $rowSeek['Positions']; ?></p>
-                                        <p><strong>Duration : </strong><?php echo $rowSeek['Duration']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <p class="product-description"><?php echo $rowSeek['Description']; ?></p>
-                                        <div class="row">
-                                            <div class="col-6"><a class="btn btn-md btn-success" href="locum.php#login">Apply</a></div>
-                                            <div class="col-6"><p class="product-price"><?php echo $rowSeek['Salary']; ?></p></div>
-                                        </div>
+                                        <button class="btn btn-sm btn-info" data-toggle="collapse" data-target="collapser">View More</button>
+                                        <a class="btn btn-sm btn-success" href="index.php#login">Apply</a>
                                     </div>
                                 </div>
                             </div>
@@ -315,38 +304,27 @@ include ('assets/php/locum-appliedjobs.php');
                     <?php
                             }
                         } else {
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.Location, v.Duration, v.Experience, v.Salary, v.Positions, v.Closing, v.Profession, v.Qualifications FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Location, v.Title, v.Description, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
                     <div class="row product-list dev">
-                        <div class="offset-md-4 col-sm-6 col-md-4 product-item animation-element">
+                        <div class="col-sm-12 col-md-12 product-item animation-element">
                             <div class="product-container">
                                 <div class="row">
-                                    <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h2><a href="#"></a><?php echo $rowSeek['OrganisationName']; ?></h2>
+                                    <div class="col-md-4">
+                                        <a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a>
                                     </div>
-                                    <div class="col-4"><a class="small-text" href="#">Top employer</a></div>
-                                </div>
-                                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a class="small-text" href="#">82 reviews</a></div>
-                                <div class="row">
-                                    <div class="col-12">
+                                    <div id="collapser" class="collapse col-md-5">
+                                        <?php echo $rowSeek['Description']; ?>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h2><a href="#"></a><?php echo $rowSeek['OrganisationName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
-                                        <p><strong>Profession : </strong><?php echo $rowSeek['Profession']; ?></p>
-                                        <p><strong>Qualifications : </strong><?php echo $rowSeek['Qualifications']; ?></p>
-                                        <p><strong>Experience : </strong><?php echo $rowSeek['Experience']; ?></p>
-                                        <p><strong>Positions : </strong><?php echo $rowSeek['Positions']; ?></p>
-                                        <p><strong>Duration : </strong><?php echo $rowSeek['Duration']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <p class="product-description"><?php echo $rowSeek['Description']; ?></p>
-                                        <div class="row">
-                                            <div class="col-6"><a class="btn btn-md btn-success" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>">Apply</a></div>
-                                            <div class="col-6"><p class="product-price"><?php echo $rowSeek['Salary']; ?></p></div>
-                                        </div>
+                                        <button class="btn btn-sm btn-info" data-toggle="collapse" data-target="collapser">View More</button>
+                                        <a class="btn btn-sm btn-success" href="index.php#login">Apply</a>
                                     </div>
                                 </div>
                             </div>

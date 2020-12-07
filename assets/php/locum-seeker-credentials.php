@@ -1,5 +1,4 @@
 <?php
-include ('utils.php');
 if(!empty($_SESSION['role']) && $_SESSION['role'] === 'jobseeker') {
     $ID = $_SESSION["ID"];
     // from user table

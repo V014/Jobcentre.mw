@@ -88,7 +88,7 @@ include ('assets/php/admin-credentials.php');
         </div>
     </section>
     <!-- Profile -->
-    <section id="profile" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpeg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
+    <section id="profile" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
         <div class="text-center login-card"><a class="js-scroll-trigger" href="#carousel"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
             <form class="text-center form-signin" method="post" action="assets/php/admin-profile.php"><span class="reauth-email"> </span>
                 <div class="form-group"><input class="form-control" type="text" value="<?php echo $username; ?>" placeholder="Username" name="username"></div>
@@ -113,15 +113,9 @@ include ('assets/php/admin-credentials.php');
                     <thead>
                         <tr class="text-white" style="background-color: rgba(40,167,69,0.87);">
                             <th>Select</th>
-                            <th>EmpID</th>
+                            <th>Employer ID</th>
                             <th>Title</th>
                             <th>Location</th>
-                            <th>Type</th>
-                            <th>Industry</th>
-                            <th>Qualifications</th>
-                            <th>Experience</th>
-                            <th>Positions</th>
-                            <th>Salary</th>
                             <th>Date</th>
                             <th data-toggle="tooltip" data-bs-tooltip="" title="Closing date of vacancy">Closing</th>
                             <th data-toggle="tooltip" data-bs-tooltip="" title="Shows if your vacancy is posted after setteling terms">Status</th>
@@ -137,12 +131,6 @@ include ('assets/php/admin-credentials.php');
                             <td><?php echo $rowPosted['EmployerID']; ?></td>
                             <td><?php echo $rowPosted['Title']; ?></td>
                             <td><?php echo $rowPosted['Location']; ?></td>
-                            <td><?php echo $rowPosted['JobType']; ?></td>
-                            <td><?php echo $rowPosted['Industry']; ?></td>
-                            <td><?php echo $rowPosted['Qualifications']; ?></td>
-                            <td><?php echo $rowPosted['Experience']; ?></td>
-                            <td><?php echo $rowPosted['Positions']; ?></td>
-                            <td><?php echo $rowPosted['Salary']; ?></td>
                             <td><?php echo $rowPosted['Date']; ?></td>
                             <td><?php echo $rowPosted['Closing']; ?></td>
                             <td><?php echo $rowPosted['Status']; ?></td>

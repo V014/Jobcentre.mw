@@ -8,10 +8,10 @@ if(isset($_POST['approve'])){
 	$result = $connection -> query($query);
 
 	if($result){
-		redirect_to("../../panel.php#posted");
+		redirect_to("../../panel.php#vacancies?id=approved");
 		exit();
 	}else{
-		redirect_to("../../panel.php#posted?reply=error");
+		redirect_to("../../panel.php#vacancies?reply=error");
 		exit();
 	}
 }
@@ -22,10 +22,10 @@ if(isset($_POST['delete'])){
 	$result = $connection -> query($query);
 
 	if($result){
-		redirect_to("../../panel.php");
+		redirect_to("../../panel.php#vacancies?reply=declined");
 		exit();
 	}else{
-		redirect_to("../../panel.php#posted?reply=error");
+		redirect_to("../../panel.php#vacancies?reply=error");
 		exit();
 	}
 }

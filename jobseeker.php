@@ -280,10 +280,8 @@ include ('assets/php/appliedjobs.php');
                                 <th>Title</th>
                                 <th>Company</th>
                                 <th>Date</th>
-                                <th>JobType</th>
                                 <th>Location</th>
                                 <th>Contact</th>
-                                <th>Salary</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -304,10 +302,8 @@ include ('assets/php/appliedjobs.php');
                                 <td><?php echo $rowApplication['Title']; ?></td>
                                 <td><?php echo $CompanyName; ?></td>
                                 <td><?php echo $rowApplication['Date']; ?></td>
-                                <td><?php echo $rowApplication['JobType']; ?></td>
                                 <td><?php echo $rowApplication['Location']; ?></td>
                                 <td><?php echo $Contact; ?></td>
-                                <td><?php echo $rowApplication['Salary']; ?></td>
                             </tr>
 
                             <?php
@@ -324,7 +320,7 @@ include ('assets/php/appliedjobs.php');
     <section>
         <div class="container" id="vacancies" style="padding: 100px 0px;">
             <div class="col-lg-12 mx-auto text-center">
-                <a class="js-scroll-trigger" href="#profile">
+                <a class="js-scroll-trigger" href="#services">
                     <i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
                     <h2 class="section-heading">Seek Job</h2>
                     <hr class="light my-4">
@@ -334,75 +330,61 @@ include ('assets/php/appliedjobs.php');
                     <div class="form-group col-md-4 offset-md-4"><button class="btn btn-success btn-lg form-control" type="submit" style="font-family: 'Open Sans', sans-serif;font-size: 16px;font-weight: 400;" name="seek"><strong>&nbsp;Seek</strong><br></button></div>
                     <?php
                         if(isset($_POST['seek']) && !empty($_POST['title'])){
-                            $title = escTxt($connection, $_POST['title']); 
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.Title, v.Location, v.JobType, v.Experience, v.Salary, v.Positions, v.Closing, v.Qualifications FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$title%' AND v.Status = 'Posted'";
+                            $Title = escTxt($connection, $_POST['title']); 
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.Description, v.Title, v.Location, v.Closing FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
-                            while($rowSeek = $resultSeek -> fetch_assoc()){
+                            if($resultSeek){
+                                while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
                     <div class="row product-list dev">
-                        <div class="offset-md-4 col-sm-6 col-md-4 product-item animation-element">
+                        <div class="col-sm-12 col-md-12 product-item animation-element">
                             <div class="product-container">
                                 <div class="row">
-                                    <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h2><a href="#"></a><?php echo $rowSeek['CompanyName']; ?></h2>
+                                    <div class="col-md-4">
+                                        <a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a>
                                     </div>
-                                    <div class="col-4"><a class="small-text" href="#">Top employer</a></div>
-                                </div>
-                                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a class="small-text" href="#">82 reviews</a></div>
-                                <div class="row">
-                                    <div class="col-12">
+                                    <div id="collapser" class="collapse col-md-5">
+                                        <?php echo $rowSeek['Description']; ?>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h2><?php echo $rowSeek['CompanyName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
-                                        <p><strong>Job Type : </strong><?php echo $rowSeek['JobType']; ?></p>
-                                        <p><strong>Qualifications : </strong><?php echo $rowSeek['Qualifications']; ?></p>
-                                        <p><strong>Experience : </strong><?php echo $rowSeek['Experience']; ?></p>
-                                        <p><strong>Positions : </strong><?php echo $rowSeek['Positions']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <div class="row">
-                                            <div class="col-6"><a class="btn btn-md btn-success" href="application.php?id=<?php echo $rowSeek['Id']; ?>">Apply</a></div>
-                                            <div class="col-6"><p class="product-price"><?php echo $rowSeek['Salary']; ?></p></div>
-                                        </div>
+                                        <a class="btn btn-sm btn-success" href="">View More</button>
+                                        <a class="btn btn-sm btn-success" href="index.php#login">Apply</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <?php
+                                }
+                            } else {
+                                echo "No such vacancy available";
                             }
                         } else {
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.Title, v.Location, v.Experience, v.Salary, v.Positions, v.Closing, v.JobType, v.Qualifications FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.Title, v.Description, v.Location, v.Closing FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID WHERE v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
                     <div class="row product-list dev">
-                        <div class="offset-md-4 col-sm-6 col-md-4 product-item animation-element">
+                        <div class="col-sm-12 col-md-12 product-item animation-element">
                             <div class="product-container">
                                 <div class="row">
-                                    <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h2><a href="#"></a><?php echo $rowSeek['CompanyName']; ?></h2>
+                                    <div class="col-md-4">
+                                        <a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a>
                                     </div>
-                                    <div class="col-4"><a class="small-text" href="#">Top employer</a></div>
-                                </div>
-                                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a class="small-text" href="#">82 reviews</a></div>
-                                <div class="row">
-                                    <div class="col-12">
+                                    <div id="collapser" class="collapse col-md-5">
+                                        <?php echo $rowSeek['Description']; ?>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h2><a href="#"></a><?php echo $rowSeek['CompanyName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
-                                        <p><strong>JobType : </strong><?php echo $rowSeek['JobType']; ?></p>
-                                        <p><strong>Qualifications : </strong><?php echo $rowSeek['Qualifications']; ?></p>
-                                        <p><strong>Experience : </strong><?php echo $rowSeek['Experience']; ?></p>
-                                        <p><strong>Positions : </strong><?php echo $rowSeek['Positions']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <div class="row">
-                                            <div class="col-6"><a class="btn btn-md btn-success" href="application.php?id=<?php echo $rowSeek['Id']; ?>">Apply</a></div>
-                                            <div class="col-6"><p class="product-price"><?php echo $rowSeek['Salary']; ?></p></div>
-                                        </div>
+                                        <button class="btn btn-sm btn-info" data-toggle="collapse" data-target="collapser">View More</button>
+                                        <a class="btn btn-sm btn-success" href="index.php#login">Apply</a>
                                     </div>
                                 </div>
                             </div>

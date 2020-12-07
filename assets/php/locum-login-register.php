@@ -1,6 +1,4 @@
 <?php
-include('connection.php');
-include('utils.php'); 
 if(isset($_POST['login'])){
 	$email = escTxt($connection, $_POST['email']);
 	$password = escTxt($connection, $_POST['password']);

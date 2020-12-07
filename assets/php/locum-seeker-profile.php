@@ -1,7 +1,4 @@
 <?php
-session_start();
-include ('connection.php');
-include('utils.php');
 if(isset($_POST['update'])){
 	$ID = $_SESSION['ID'];
 	$email = escTxt($connection, $_POST['email']);

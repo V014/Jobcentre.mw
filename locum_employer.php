@@ -229,8 +229,11 @@ include('assets/php/locum-postedjobs.php');
                     <div class="form-group col-md-8 offset-md-2">
                         <input class="form-control" data-toggle="tooltip" data-bs-tooltip="" type="date" name="closingDate" title="Closing date of vacancy" required="">
                     </div>
+                    <div class="form-group col-md-8 offset-md-2" data-bs-tooltip="" title="Quick description">
+                        <textarea name="minidesc" class="form-control" placeholder="Quick description..."></textarea>
+                    </div>
                     <div class="form-group col-md-8 offset-md-2">
-                        <textarea id="description" name="description"></textarea>
+                        <textarea id="description" name="description" placeholder="Full description..."></textarea>
                     </div>
                     <div class="form-group col-md-8 offset-md-2">
                         <button class="btn btn-light btn-lg form-control" name="post" type="submit" style="font-family: 'Open Sans', sans-serif;font-size: 16px;font-weight: 400;"><strong>&nbsp;Post</strong><br></button>

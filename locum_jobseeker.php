@@ -1,9 +1,9 @@
 <?php
 session_start();
 include ('assets/php/connection.php');
+include ('assets/php/utils.php');
 include ('assets/php/locum-seeker-credentials.php');
 include ('assets/php/locum-appliedjobs.php');
-include ('assets/php/utils.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -275,7 +275,7 @@ include ('assets/php/utils.php');
                     <?php
                         if(isset($_POST['seek']) && !empty($_POST['title'])){
                             $Title = escTxt($connection, $_POST['title']); 
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.Location, v.Duration, v.Experience, v.Salary, v.Positions, v.Closing, v.Qualifications FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.Location, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>

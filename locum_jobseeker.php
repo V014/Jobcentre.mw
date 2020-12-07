@@ -294,8 +294,8 @@ include ('assets/php/locum-appliedjobs.php');
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <button class="btn btn-sm btn-info" data-toggle="collapse" data-target="collapser">View More</button>
-                                        <a class="btn btn-sm btn-success" href="index.php#login">Apply</a>
+                                        <a class="btn btn-sm btn-info" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
+                                        <a class="btn btn-sm btn-success" href="locum_application.php#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>
@@ -323,8 +323,8 @@ include ('assets/php/locum-appliedjobs.php');
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <button class="btn btn-sm btn-info" data-toggle="collapse" data-target="collapser">View More</button>
-                                        <a class="btn btn-sm btn-success" href="index.php#login">Apply</a>
+                                        <a class="btn btn-sm btn-info" href="locum_application.php#description">View More</a>
+                                        <a class="btn btn-sm btn-success" href="locum_application.php#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>

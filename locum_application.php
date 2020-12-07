@@ -82,15 +82,29 @@ include ('assets/php/locum-job.php');
         </ol>
         </div>
     </section>
+    <!-- description -->
+    <section id="description">
+        <div class="col-8 offset-2">
+            <form method="post" action="assets/php/description-edit.php">
+                <div class="form-group">
+                    <?php echo $data ?>
+                </div>
+            </form>
+            <script>
+            ClassicEditor
+                .create( document.querySelector( '#desc' ) )
+                .catch( error => {
+                    console.error( error );
+                } );
+            </script>
+        </div>
+    </section>
     <!-- application -->
     <section id="apply" style="background-color: #28a745;">
         <div class="text-center login-card"><a class="js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
             <h2><?php echo $organisationName; ?></h2>
             <p><?php echo $title; ?></p>
             <p><?php echo $location; ?></p>
-            <p><?php echo $qualification; ?></p>
-            <p><?php echo $experience; ?></p>
-            <p><?php echo $salary; ?></p>
             <p class="profile-name-card">Upload your cv and application letter to apply</p>
             <form class="form-signin" method="post" action="assets/php/locum-application.php" enctype="multipart/form-data"><span class="reauth-email"></span>
                 <input class="form-control" type="text" id="inputId" required="" value="<?php echo $vacancyId; ?>" name="vacancyId" data-toggle="tooltip" data-bs-tooltip="" title="Vacancy ID" readonly>

@@ -85,6 +85,7 @@
         </ol>
         </div>
     </section>
+    <!--- description -->
     <section id="description">
         <div class="col-8 offset-2">
             <form method="post" action="assets/php/description-edit.php">

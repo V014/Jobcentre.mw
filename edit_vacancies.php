@@ -2,10 +2,6 @@
 	session_start();
 	include ('assets/php/connection.php');
 	include('assets/php/postedjobs.php');
-    $rowPosted = $resultsPosted -> fetch_assoc();
-    $description = $rowPosted['Description'];
-    $vacancyID = $rowPosted['Id'];
-    $data = str_replace( '&', '&amp;', $description );
 ?>
 <!DOCTYPE html>
 <html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2020 at 08:24 AM
+-- Generation Time: Dec 09, 2020 at 11:30 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -83,15 +83,15 @@ CREATE TABLE `applications_employer` (
 CREATE TABLE `employer` (
   `Id` int(7) NOT NULL,
   `EmployerID` int(7) NOT NULL,
-  `Ceo` varchar(30) DEFAULT NULL,
-  `CompanyName` varchar(30) DEFAULT NULL,
-  `OrganisationType` varchar(30) DEFAULT NULL,
-  `Industry` varchar(30) DEFAULT NULL,
-  `Location` varchar(30) DEFAULT NULL,
-  `City` varchar(30) DEFAULT NULL,
-  `Address` varchar(50) DEFAULT NULL,
-  `Website` varchar(30) DEFAULT NULL,
-  `Description` varchar(150) DEFAULT NULL,
+  `Ceo` text,
+  `CompanyName` text,
+  `OrganisationType` text,
+  `Industry` text,
+  `Location` text,
+  `City` text,
+  `Address` text,
+  `Website` text,
+  `Description` text,
   `Contact` int(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -111,9 +111,9 @@ INSERT INTO `employer` (`Id`, `EmployerID`, `Ceo`, `CompanyName`, `OrganisationT
 
 CREATE TABLE `feedback` (
   `Id` int(7) NOT NULL,
-  `Name` varchar(30) NOT NULL,
-  `Email` varchar(30) NOT NULL,
-  `Message` varchar(150) NOT NULL,
+  `Name` text NOT NULL,
+  `Email` text NOT NULL,
+  `Message` text NOT NULL,
   `Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -129,13 +129,13 @@ CREATE TABLE `jobseeker` (
   `Fullname` varchar(30) DEFAULT NULL,
   `Gender` enum('Male','Female') DEFAULT NULL,
   `Dob` date DEFAULT NULL,
-  `Nationality` varchar(30) DEFAULT NULL,
-  `City` varchar(30) DEFAULT NULL,
-  `Contact` varchar(30) DEFAULT NULL,
-  `Address` varchar(50) DEFAULT NULL,
-  `Skills` varchar(150) DEFAULT NULL,
-  `Location` varchar(30) DEFAULT NULL,
-  `Industry` varchar(30) DEFAULT NULL
+  `Nationality` text,
+  `City` text,
+  `Contact` text,
+  `Address` text,
+  `Skills` text,
+  `Location` text,
+  `Industry` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -153,8 +153,8 @@ INSERT INTO `jobseeker` (`Id`, `UserID`, `Fullname`, `Gender`, `Dob`, `Nationali
 
 CREATE TABLE `locum` (
   `Id` int(7) NOT NULL,
-  `Email` varchar(30) NOT NULL,
-  `Password` varchar(30) NOT NULL,
+  `Email` text NOT NULL,
+  `Password` text NOT NULL,
   `Role` enum('jobseeker','employer') NOT NULL,
   `DateJoined` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -204,14 +204,14 @@ CREATE TABLE `locum_applications_employer` (
 CREATE TABLE `locum_employer` (
   `Id` int(7) NOT NULL,
   `EmployerID` int(7) NOT NULL,
-  `Ceo` varchar(30) DEFAULT NULL,
-  `OrganisationName` varchar(30) DEFAULT NULL,
-  `Location` varchar(30) DEFAULT NULL,
-  `City` varchar(30) DEFAULT NULL,
-  `Address` varchar(50) DEFAULT NULL,
-  `Website` varchar(30) DEFAULT NULL,
-  `Description` varchar(150) DEFAULT NULL,
-  `Contact` varchar(30) DEFAULT NULL,
+  `Ceo` text,
+  `OrganisationName` text,
+  `Location` text,
+  `City` text,
+  `Address` text,
+  `Website` text,
+  `Description` text,
+  `Contact` text,
   `Status` enum('Online','Blocked') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -233,14 +233,14 @@ INSERT INTO `locum_employer` (`Id`, `EmployerID`, `Ceo`, `OrganisationName`, `Lo
 CREATE TABLE `locum_jobseeker` (
   `Id` int(7) NOT NULL,
   `UserID` int(7) NOT NULL,
-  `Fullname` varchar(30) DEFAULT NULL,
+  `Fullname` text,
   `Gender` enum('Male','Female') DEFAULT NULL,
   `Dob` date DEFAULT NULL,
-  `Nationality` varchar(30) DEFAULT NULL,
-  `Location` varchar(30) DEFAULT NULL,
-  `City` varchar(30) DEFAULT NULL,
-  `Contact` varchar(30) DEFAULT NULL,
-  `Address` varchar(50) DEFAULT NULL,
+  `Nationality` text,
+  `Location` text,
+  `City` text,
+  `Contact` text,
+  `Address` text,
   `Profession` enum('Doctor','Nurse','Clinician') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -262,9 +262,10 @@ CREATE TABLE `locum_vacancies` (
   `EmployerID` int(7) NOT NULL,
   `Date` date NOT NULL,
   `Closing` date NOT NULL,
-  `Title` varchar(30) NOT NULL,
-  `Location` varchar(30) NOT NULL,
-  `Description` varchar(1000) DEFAULT NULL,
+  `Title` text NOT NULL,
+  `Location` text NOT NULL,
+  `Description` text,
+  `MiniDesc` text NOT NULL,
   `Status` enum('Pending','Posted') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -272,11 +273,11 @@ CREATE TABLE `locum_vacancies` (
 -- Dumping data for table `locum_vacancies`
 --
 
-INSERT INTO `locum_vacancies` (`Id`, `EmployerID`, `Date`, `Closing`, `Title`, `Location`, `Description`, `Status`) VALUES
-(1, 2, '2020-11-09', '2020-12-30', 'Clinic director', 'Blantyre', 'We are recruiting those who are up to the task of organizing the daily record keeping of the organisation', 'Posted'),
-(2, 2, '2020-11-09', '2020-12-31', 'Nurse', 'Blantyre', 'We are compiling a team of nurses to help in the most affected part of the nation, resources will be procured.', 'Posted'),
-(3, 3, '2020-11-09', '2020-12-31', 'Assistant Doctor', 'Blantyre', 'We need someone to aid our doctors when they are on high demand.', 'Posted'),
-(4, 4, '2020-12-01', '2020-12-31', 'Clinic director', 'Blantyre', '<p>REPORTS TO: Senior Communications Advisor</p><p><br>Purpose of the Job:</p><p>Based in PSI Malawi Lilongwe office, Demand Creation Manager (RH) will be lead the Reproductive Health Program demand creation team in ensuring that demand for RH services is created and that targets are met</p><p><br>MAIN DUTIES AND RESPONSIBILITIES:</p><p>Develop PSI Malawi reproductive health SBCC strategy and operational plan in coordination with program team and align it with donor priorities.<br>Leads in development and implementation of PSI Malawi Youth focused demand creation strategies.<br>Lead in building a vibrant and responsive RH Demand Creation and Social Mobilization team.<br>Lead the development, testing and implementation of innovative demand creation approaches.<br>With support from the communications manager develop demand creation training manual and supporting job aides.<br>Initiates and participates in evaluation of targeted demand generation strategies and assessments activities with', 'Pending');
+INSERT INTO `locum_vacancies` (`Id`, `EmployerID`, `Date`, `Closing`, `Title`, `Location`, `Description`, `MiniDesc`, `Status`) VALUES
+(1, 2, '2020-11-09', '2020-12-30', 'Clinic director', 'Blantyre', 'We are recruiting those who are up to the task of organizing the daily record keeping of the organisation', '', 'Posted'),
+(2, 2, '2020-11-09', '2020-12-31', 'Nurse', 'Blantyre', 'We are compiling a team of nurses to help in the most affected part of the nation, resources will be procured.', '', 'Posted'),
+(3, 3, '2020-11-09', '2020-12-31', 'Assistant Doctor', 'Blantyre', 'We need someone to aid our doctors when they are on high demand.', '', 'Posted'),
+(4, 4, '2020-12-01', '2020-12-31', 'Clinic director', 'Blantyre', '<p>REPORTS TO: Senior Communications Advisor</p><p><br>Purpose of the Job:</p><p>Based in PSI Malawi Lilongwe office, Demand Creation Manager (RH) will be lead the Reproductive Health Program demand creation team in ensuring that demand for RH services is created and that targets are met</p><p><br>MAIN DUTIES AND RESPONSIBILITIES:</p><p>Develop PSI Malawi reproductive health SBCC strategy and operational plan in coordination with program team and align it with donor priorities.<br>Leads in development and implementation of PSI Malawi Youth focused demand creation strategies.<br>Lead in building a vibrant and responsive RH Demand Creation and Social Mobilization team.<br>Lead the development, testing and implementation of innovative demand creation approaches.<br>With support from the communications manager develop demand creation training manual and supporting job aides.<br>Initiates and participates in evaluation of targeted</p>', '', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -286,8 +287,8 @@ INSERT INTO `locum_vacancies` (`Id`, `EmployerID`, `Date`, `Closing`, `Title`, `
 
 CREATE TABLE `user` (
   `Id` int(7) NOT NULL,
-  `Email` varchar(30) NOT NULL,
-  `Password` varchar(30) NOT NULL,
+  `Email` text NOT NULL,
+  `Password` text NOT NULL,
   `Role` enum('jobseeker','employer') NOT NULL,
   `DateJoined` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -312,9 +313,10 @@ CREATE TABLE `vacancies` (
   `EmployerID` int(7) NOT NULL,
   `Date` date NOT NULL,
   `Closing` date NOT NULL,
-  `Title` varchar(30) NOT NULL,
-  `Location` varchar(30) NOT NULL,
+  `Title` text NOT NULL,
+  `Location` text NOT NULL,
   `Description` text,
+  `MiniDesc` text NOT NULL,
   `Status` enum('Pending','Posted') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -322,11 +324,11 @@ CREATE TABLE `vacancies` (
 -- Dumping data for table `vacancies`
 --
 
-INSERT INTO `vacancies` (`Id`, `EmployerID`, `Date`, `Closing`, `Title`, `Location`, `Description`, `Status`) VALUES
-(1, 1, '2020-10-11', '2020-11-30', 'Quantity Surveyor', 'Blantyre', 'Done', 'Pending'),
-(2, 1, '2020-10-18', '2020-11-30', 'Room designer', 'Blantyre', 'If you can design a room, this is the job for you.', 'Posted'),
-(4, 3, '2020-11-28', '2020-12-30', 'Human Resource Manager', 'Blantyre', '<p>REPORTS TO: Senior Communications Advisor</p><p><br>Purpose of the Job:</p><p>Based in PSI Malawi Lilongwe office, Demand Creation Manager (RH) will be lead the Reproductive Health Program demand creation team in ensuring that demand for RH services is created and that targets are met</p><p><br>MAIN DUTIES AND RESPONSIBILITIES:</p><p>Develop PSI Malawi reproductive health SBCC strategy and operational plan in coordination with program team and align it with donor priorities.<br>Leads in development and implementation of PSI Malawi Youth focused demand creation strategies.<br>Lead in building a vibrant and responsive RH Demand Creation and Social Mobilization team.<br>Lead the development, testing and implementation of innovative demand creation approaches.<br>With support from the communications manager develop demand creation training manual and supporting job aides.<br>Initiates and participates in evaluation of targeted demand generation strategies and assessments activities with the goal of improving project outcomes.<br>Works with disability inclusion coordinator to develop strategies on sensitizing teams on inclusion and plans activities targeting persons living with disability.<br>Consolidates and provides input for weekly, monthly, and quarterly reports demonstrating progress and also highlighting key insights on demand creation strategies/approaches for scale up.<br>Lead documentation of program success stories to be shared with stakeholders including MoH and funding partners<br>Lead process of developing new demand creation materials, provider behavior materials and information dissemination tools, drawing on existing PSI and MoH resources.<br>Work with the MERL team to generate and use evidence in development of demand strategies.<br>Develop and cascade standard operating procedures for demand creation processes to standardize implementation.<br>Represent the department at national level in RH sub committees and TWGs<br>Coordinate with other external partners and stakeholders in creating demand creation strategies and implementing them<br>Coordinate with district and community structures in implementing demand creation activities</p><p><br>COMPETENCIES<br>Ability to manage multiple tasks and prioritize.<br>Excellent interpersonal and time management skills<br>Self-starter and effective team player<br>High levels of professionalism</p><p><br>THE BASICS:<br>At least a Bachelorsâ€™ degree in Public Health, Communication, Social Behavioral Change Communication or in any related field<br>A minimum of 3-5 years of experience in a communication or demand creation coordination or management capacity<br>Computer literate, extensive working experience in Word, Excel, Power-point, Outlook Express<br>Experience in report writing and documentation</p>', 'Pending'),
-(5, 3, '2020-12-01', '2020-12-30', 'Accountant', 'Blantyre', '<p>REPORTS TO: Senior Communications Advisor</p><p><br>Purpose of the Job:</p><p>Based in PSI Malawi Lilongwe office, Demand Creation Manager (RH) will be lead the Reproductive Health Program demand creation team in ensuring that demand for RH services is created and that targets are met</p><p><br>MAIN DUTIES AND RESPONSIBILITIES:</p><p>Develop PSI Malawi reproductive health SBCC strategy and operational plan in coordination with program team and align it with donor priorities.<br>Leads in development and implementation of PSI Malawi Youth focused demand creation strategies.<br>Lead in building a vibrant and responsive RH Demand Creation and Social Mobilization team.<br>Lead the development, testing and implementation of innovative demand creation approaches.<br>With support from the communications manager develop demand creation training manual and supporting job aides.<br>Initiates and participates in evaluation of targeted demand generation strategies and assessments activities with the goal of improving project outcomes.<br>Works with disability inclusion coordinator to develop strategies on sensitizing teams on inclusion and plans activities targeting persons living with disability.<br>Consolidates and provides input for weekly, monthly, and quarterly reports demonstrating progress and also highlighting key insights on demand creation strategies/approaches for scale up.<br>Lead documentation of program success stories to be shared with stakeholders including MoH and funding partners<br>Lead process of developing new demand creation materials, provider behavior materials and information dissemination tools, drawing on existing PSI and MoH resources.<br>Work with the MERL team to generate and use evidence in development of demand strategies.<br>Develop and cascade standard operating procedures for demand creation processes to standardize implementation.<br>Represent the department at national level in RH sub committees and TWGs<br>Coordinate with other external partners and stakeholders in creating demand creation strategies and implementing them<br>Coordinate with district and community structures in implementing demand creation activities</p><p><br>COMPETENCIES<br>Ability to manage multiple tasks and prioritize.<br>Excellent interpersonal and time management skills<br>Self-starter and effective team player<br>High levels of professionalism</p><p><br>THE BASICS:<br>At least a Bachelorsâ€™ degree in Public Health, Communication, Social Behavioral Change Communication or in any related field<br>A minimum of 3-5 years of experience in a communication or demand creation coordination or management capacity<br>Computer literate, extensive working experience in Word, Excel, Power-point, Outlook Express<br>Experience in report writing and documentation</p>', 'Pending');
+INSERT INTO `vacancies` (`Id`, `EmployerID`, `Date`, `Closing`, `Title`, `Location`, `Description`, `MiniDesc`, `Status`) VALUES
+(1, 1, '2020-10-11', '2020-11-30', 'Quantity Surveyor', 'Blantyre', 'Done', '', 'Posted'),
+(2, 1, '2020-10-18', '2020-11-30', 'Room designer', 'Blantyre', 'If you can design a room, this is the job for you.', '', 'Posted'),
+(4, 3, '2020-11-28', '2020-12-30', 'Human Resource Manager', 'Blantyre', '<p>Address: Senior Communications Advisor</p><p><br>Purpose of the Job:</p><p>Based in PSI Malawi Lilongwe office, Demand Creation Manager (RH) will be lead the Reproductive Health Program demand creation team in ensuring that demand for RH services is created and that targets are met</p><p><br>MAIN DUTIES AND RESPONSIBILITIES:</p><p>Develop PSI Malawi reproductive health SBCC strategy and operational plan in coordination with program team and align it with donor priorities.<br>Leads in development and implementation of PSI Malawi Youth focused demand creation strategies.<br>Lead in building a vibrant and responsive RH Demand Creation and Social Mobilization team.<br>Lead the development, testing and implementation of innovative demand creation approaches.<br>With support from the communications manager develop demand creation training manual and supporting job aides.<br>Initiates and participates in evaluation of targeted demand generation strategies and assessments activities with the goal of improving project outcomes.<br>Works with disability inclusion coordinator to develop strategies on sensitizing teams on inclusion and plans activities targeting persons living with disability.<br>Consolidates and provides input for weekly, monthly, and quarterly reports demonstrating progress and also highlighting key insights on demand creation strategies/approaches for scale up.<br>Lead documentation of program success stories to be shared with stakeholders including MoH and funding partners<br>Lead process of developing new demand creation materials, provider behavior materials and information dissemination tools, drawing on existing PSI and MoH resources.<br>Work with the MERL team to generate and use evidence in development of demand strategies.<br>Develop and cascade standard operating procedures for demand creation processes to standardize implementation.<br>Represent the department at national level in RH sub committees and TWGs<br>Coordinate with other external partners and stakeholders in creating demand creation strategies and implementing them<br>Coordinate with district and community structures in implementing demand creation activities</p><p><br>COMPETENCIES AND KNOWLEDGE<br>Ability to manage multiple tasks and prioritize.<br>Excellent interpersonal and time management skills<br>Self-starter and effective team player<br>High levels of professionalism</p><p><br>THE BASICS:<br>At least a Bachelorsâ€™ degree in Public Health, Communication, Social Behavioral Change Communication or in any related field<br>A minimum of 3-5 years of experience in a communication or demand creation coordination or management capacity<br>Computer literate, extensive working experience in Word, Excel, Power-point, Outlook Express<br>Experience in report writing and documentation</p>', '', 'Posted'),
+(5, 3, '2020-12-01', '2020-12-30', 'Accountant', 'Blantyre', '<p>REPORTS TO: Senior Communications Advisor</p><p><br>Purpose of the Job:</p><p>Based in PSI Malawi Lilongwe office, Demand Creation Manager (RH) will be lead the Reproductive Health Program demand creation team in ensuring that demand for RH services is created and that targets are met</p><p><br>MAIN DUTIES AND RESPONSIBILITIES:</p><p>Develop PSI Malawi reproductive health SBCC strategy and operational plan in coordination with program team and align it with donor priorities.<br>Leads in development and implementation of PSI Malawi Youth focused demand creation strategies.<br>Lead in building a vibrant and responsive RH Demand Creation and Social Mobilization team.<br>Lead the development, testing and implementation of innovative demand creation approaches.<br>With support from the communications manager develop demand creation training manual and supporting job aides.<br>Initiates and participates in evaluation of targeted demand generation strategies and assessments activities with the goal of improving project outcomes.<br>Works with disability inclusion coordinator to develop strategies on sensitizing teams on inclusion and plans activities targeting persons living with disability.<br>Consolidates and provides input for weekly, monthly, and quarterly reports demonstrating progress and also highlighting key insights on demand creation strategies/approaches for scale up.<br>Lead documentation of program success stories to be shared with stakeholders including MoH and funding partners<br>Lead process of developing new demand creation materials, provider behavior materials and information dissemination tools, drawing on existing PSI and MoH resources.<br>Work with the MERL team to generate and use evidence in development of demand strategies.<br>Develop and cascade standard operating procedures for demand creation processes to standardize implementation.<br>Represent the department at national level in RH sub committees and TWGs<br>Coordinate with other external partners and stakeholders in creating demand creation strategies and implementing them<br>Coordinate with district and community structures in implementing demand creation activities</p><p><br>COMPETENCIES AND KNOWLEDGE<br>Ability to manage multiple tasks and prioritize.<br>Excellent interpersonal and time management skills<br>Self-starter and effective team player<br>High levels of professionalism</p><p><br>THE BASICS:<br>At least a Bachelorsâ€™ degree in Public Health, Communication, Social Behavioral Change Communication or in any related field<br>A minimum of 3-5 years of experience in a communication or demand creation coordination or management capacity<br>Computer literate, extensive working experience in Word, Excel, Power-point, Outlook Express<br>Experience in report writing and documentation</p>', '', 'Posted');
 
 --
 -- Indexes for dumped tables
@@ -372,8 +374,7 @@ ALTER TABLE `jobseeker`
 -- Indexes for table `locum`
 --
 ALTER TABLE `locum`
-  ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Email` (`Id`,`Email`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `locum_applications`
@@ -409,8 +410,7 @@ ALTER TABLE `locum_vacancies`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Email` (`Id`,`Email`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `vacancies`

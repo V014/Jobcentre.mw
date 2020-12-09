@@ -146,6 +146,55 @@ include ('assets/php/admin-credentials.php');
             <div class="form-group text-center col-md-4 offset-md-4"><button class="btn btn-danger text-white form-control" type="submit" name="delete">Decline</button></div>
         </form>
     </section>
+     <!-- Locum - Vacancies -->
+    <section id="locum_vacancies" style="font-family: 'Open Sans', sans-serif;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#profile"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+                    <h2 class="section-heading">Locum - Vacancies</h2>
+                    <hr class="my-4" style="filter: contrast(0%);">
+                    <p class="col-md-10 offset-md-1">This table shows the jobs posted by employers. It describes requirements they seek and conditions they offer. You can approve display to job seekers, or delete a post. Just select it first.</p>
+                </div>
+            </div>
+            <form method="post" action="assets/php/locum-admin-postedit.php">
+            <div class="table-responsive table-borderless">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="text-white" style="background-color: rgba(45,134,153,0.87);">
+                            <th>Select</th>
+                            <th>Employer ID</th>
+                            <th>Title</th>
+                            <th>Location</th>
+                            <th>Date</th>
+                            <th data-toggle="tooltip" data-bs-tooltip="" title="Closing date of vacancy">Closing</th>
+                            <th data-toggle="tooltip" data-bs-tooltip="" title="Shows if your vacancy is posted after setteling terms">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            include('assets/php/locum-admin-postedjobs.php');
+                            while($rowPosted = $resultsPosted -> fetch_assoc()){
+                        ?>
+                        <tr>
+                            <td><input value="<?php echo $rowPosted['Id']; ?>" name="selected" type="radio"></td>
+                            <td><?php echo $rowPosted['EmployerID']; ?></td>
+                            <td><?php echo $rowPosted['Title']; ?></td>
+                            <td><?php echo $rowPosted['Location']; ?></td>
+                            <td><?php echo $rowPosted['Date']; ?></td>
+                            <td><?php echo $rowPosted['Closing']; ?></td>
+                            <td><?php echo $rowPosted['Status']; ?></td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+            <div class="form-group text-center col-md-4 offset-md-4"><button class="btn btn-info text-white form-control" type="submit" name="approve">Approve</button></div>
+            <div class="form-group text-center col-md-4 offset-md-4"><button class="btn btn-danger text-white form-control" type="submit" name="delete">Decline</button></div>
+        </form>
+    </section>
     <!-- Feedback -->
     <section id="feedback" class="bg-dark text-white" style="padding: 200px 0px;">
         <div class="container text-center"><a class="js-scroll-trigger" href="#vacancies"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: rgb(254,254,254);"></i></a>

@@ -86,7 +86,7 @@
         <div class="col-8 offset-2">
             <form method="post" action="assets/php/description-edit.php">
                 <div class="form-group">
-                    <textarea id="desc" name="desc"><?php echo $data ?></textarea>
+                    <textarea id="desc" name="desc"><?php echo $data; ?></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-success form-control" name="update" value="<?php echo $vacancyID ?>" type="submit">Update</button>

@@ -351,7 +351,7 @@ include ('assets/php/appliedjobs.php');
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <a class="btn btn-sm btn-info" href="application.php#description">View More</a>
+                                        <a class="btn btn-sm btn-info" href="application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
                                         <a class="btn btn-sm btn-success" href="application.php#apply">Apply</a>
                                     </div>
                                 </div>
@@ -383,7 +383,7 @@ include ('assets/php/appliedjobs.php');
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <a class="btn btn-sm btn-info" href="application.php#description">View More</a>
+                                        <a class="btn btn-sm btn-info" href="application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
                                         <a class="btn btn-sm btn-success" href="application.php#apply">Apply</a>
                                     </div>
                                 </div>

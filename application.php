@@ -82,17 +82,12 @@ include ('assets/php/job.php');
         </ol>
         </div>
     </section>
-    <!--- Job description -->
+    <!-- description -->
     <section id="description">
-        <div class="col-12 text-center">
-            <h1><?php echo $companyName; ?></h1>
-            <p><strong>Job Title:</strong> <?php echo $title; ?></p>
-            <p><strong>Location:</strong> <?php echo $location; ?></p>
-            <p><strong>Qualifications:</strong> <?php echo $qualification; ?></p>
-            <p><strong>Experience:</strong> <?php echo $experience; ?></p>
-            <p><strong>Salary:</strong> <?php echo $salary; ?></p>
-            <h3><u>Job Description</u></h3>
-            <p><?php echo $description ?></p>
+        <div class="col-8 offset-2">
+            <div class="form-group">
+                <?php echo $data ?>
+            </div>
         </div>
     </section>
     <!-- application -->

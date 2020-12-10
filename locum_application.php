@@ -85,18 +85,9 @@ include ('assets/php/locum-job.php');
     <!-- description -->
     <section id="description">
         <div class="col-8 offset-2">
-            <form method="post" action="assets/php/description-edit.php">
-                <div class="form-group">
-                    <?php echo $data ?>
-                </div>
-            </form>
-            <script>
-            ClassicEditor
-                .create( document.querySelector( '#desc' ) )
-                .catch( error => {
-                    console.error( error );
-                } );
-            </script>
+            <div class="form-group">
+                <?php echo $data ?>
+            </div>
         </div>
     </section>
     <!-- application -->

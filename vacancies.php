@@ -100,7 +100,7 @@ include ('assets/php/utils.php');
                     <?php
                         if(isset($_POST['seek']) && !empty($_POST['title'])){
                             $Title = escTxt($connection, $_POST['title']); 
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.Description, v.Title, v.JobType, v.Location, v.Experience, v.Salary, v.Positions, v.Closing, v.Qualifications FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.MiniDesc, v.Description, v.Title, v.Location, v.Closing FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             if($resultSeek){
                             	while($rowSeek = $resultSeek -> fetch_assoc()){
@@ -113,14 +113,15 @@ include ('assets/php/utils.php');
                                         <a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a>
                                     </div>
                                     <div class="col-md-5">
-                                        <?php echo $rowSeek['Description']; ?>
+                                        <h3>Quick Description</h3>
+                                        <?php echo $rowSeek['MiniDesc']; ?>
                                     </div>
                                     <div class="col-md-3">
                                         <h2><?php echo $rowSeek['CompanyName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <a class="btn btn-sm btn-info" href="">View More</a>
+                                        <a class="btn btn-sm btn-info" href="index.php#login">View More</a>
                                         <a class="btn btn-sm btn-success" href="index.php#login">Apply</a>
                                     </div>
                                 </div>
@@ -133,7 +134,7 @@ include ('assets/php/utils.php');
 	                        	echo "No such vacancy available";
 	                        }
                         } else {
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.Title, v.Description, v.Location, v.Closing FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID WHERE v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.Title, v.MiniDesc, v.Description, v.Location, v.Closing FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID WHERE v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
@@ -145,14 +146,15 @@ include ('assets/php/utils.php');
                                         <a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a>
                                     </div>
                                     <div class="col-md-5">
-                                        <?php echo $rowSeek['Description']; ?>
+                                        <h3>Quick Description</h3>
+                                        <?php echo $rowSeek['MiniDesc']; ?>
                                     </div>
                                     <div class="col-md-3">
                                         <h2><a href="#"></a><?php echo $rowSeek['CompanyName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <a class="btn btn-sm btn-info" href="#">View More</a>
+                                        <a class="btn btn-sm btn-info" href="index.php#login">View More</a>
                                         <a class="btn btn-sm btn-success" href="index.php#login">Apply</a>
                                     </div>
                                 </div>

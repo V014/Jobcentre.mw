@@ -100,38 +100,29 @@ include ('assets/php/utils.php');
                     <?php
                         if(isset($_POST['seek']) && !empty($_POST['title'])){
                             $Title = escTxt($connection, $_POST['title']); 
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Profession, v.Description, v.Location, v.Duration, v.Experience, v.Salary, v.Positions, v.Closing, v.Qualifications FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.Location, v.MiniDesc, v.Closing, v.JobType FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
                     <div class="row product-list dev">
-                        <div class="offset-md-4 col-sm-6 col-md-4 product-item animation-element">
+                        <div class="col-sm-12 col-md-12 product-item animation-element">
                             <div class="product-container">
                                 <div class="row">
-                                    <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h2><a href="#"></a><?php echo $rowSeek['OrganisationName']; ?></h2>
+                                    <div class="col-md-4">
+                                        <a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a>
                                     </div>
-                                    <div class="col-4"><a class="small-text" href="#">Top employer</a></div>
-                                </div>
-                                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a class="small-text" href="#">82 reviews</a></div>
-                                <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-md-5">
+                                        <h3>Quick Description</h3>
+                                        <?php echo $rowSeek['MiniDesc']; ?>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h2><?php echo $rowSeek['OrganisationName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
+                                        <p><strong>Job Type : </strong><?php echo $rowSeek['JobType']; ?></p>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
-                                        <p><strong>Profession : </strong><?php echo $rowSeek['Profession']; ?></p>
-                                        <p><strong>Qualifications : </strong><?php echo $rowSeek['Qualifications']; ?></p>
-                                        <p><strong>Experience : </strong><?php echo $rowSeek['Experience']; ?></p>
-                                        <p><strong>Positions : </strong><?php echo $rowSeek['Positions']; ?></p>
-                                        <p><strong>Duration : </strong><?php echo $rowSeek['Duration']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <p class="product-description"><?php echo $rowSeek['Description']; ?></p>
-                                        <div class="row">
-                                            <div class="col-6"><a class="btn btn-md btn-success" href="locum.php#login">Apply</a></div>
-                                            <div class="col-6"><p class="product-price"><?php echo $rowSeek['Salary']; ?></p></div>
-                                        </div>
+                                        <a class="btn btn-sm btn-info" href="locum.php#login">View More</a>
+                                        <a class="btn btn-sm btn-success" href="locum.php#login">Apply</a>
                                     </div>
                                 </div>
                             </div>
@@ -140,38 +131,29 @@ include ('assets/php/utils.php');
                     <?php
                             }
                         } else {
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.Location, v.Duration, v.Experience, v.Salary, v.Positions, v.Closing, v.Profession, v.Qualifications FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.MiniDesc, v.Location, v.Closing, v.JobType FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
                     <div class="row product-list dev">
-                        <div class="offset-md-4 col-sm-6 col-md-4 product-item animation-element">
+                        <div class="col-sm-12 col-md-12 product-item animation-element">
                             <div class="product-container">
                                 <div class="row">
-                                    <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h2><a href="#"></a><?php echo $rowSeek['OrganisationName']; ?></h2>
+                                    <div class="col-md-4">
+                                        <a class="product-image" href="#"><img src="assets/img/logo-default.jpg"></a>
                                     </div>
-                                    <div class="col-4"><a class="small-text" href="#">Top employer</a></div>
-                                </div>
-                                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a class="small-text" href="#">82 reviews</a></div>
-                                <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-md-5">
+                                        <h3>Quick Description</h3>
+                                        <?php echo $rowSeek['MiniDesc']; ?>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h2><?php echo $rowSeek['OrganisationName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
+                                        <p><strong>Job Type : </strong><?php echo $rowSeek['JobType']; ?></p>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
-                                        <p><strong>Profession : </strong><?php echo $rowSeek['Profession']; ?></p>
-                                        <p><strong>Qualifications : </strong><?php echo $rowSeek['Qualifications']; ?></p>
-                                        <p><strong>Experience : </strong><?php echo $rowSeek['Experience']; ?></p>
-                                        <p><strong>Positions : </strong><?php echo $rowSeek['Positions']; ?></p>
-                                        <p><strong>Duration : </strong><?php echo $rowSeek['Duration']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <p class="product-description"><?php echo $rowSeek['Description']; ?></p>
-                                        <div class="row">
-                                            <div class="col-6"><a class="btn btn-md btn-success" href="locum.php#login">Apply</a></div>
-                                            <div class="col-6"><p class="product-price"><?php echo $rowSeek['Salary']; ?></p></div>
-                                        </div>
+                                        <a class="btn btn-sm btn-info" href="locum.php#login">View More</a>
+                                        <a class="btn btn-sm btn-success" href="locum.php#login">Apply</a>
                                     </div>
                                 </div>
                             </div>

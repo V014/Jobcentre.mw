@@ -331,6 +331,7 @@ include('assets/php/postedjobs.php');
                                 <th>Select</th>
                                 <th>Title</th>
                                 <th>Location</th>
+                                <th>Description</th>
                                 <th>Date</th>
                                 <th>Closing</th>
                                 <th data-toggle="tooltip" data-bs-tooltip="" title="Shows if your vacancy is posted after setteling terms">Status</th>
@@ -344,6 +345,7 @@ include('assets/php/postedjobs.php');
                                 <td><input value="<?php echo $rowPosted['Id']; ?>" name="selected" type="radio"></td>
                                 <td><?php echo $rowPosted['Title']; ?></td>
                                 <td><?php echo $rowPosted['Location']; ?></td>
+                                <td><?php echo $rowPosted['MiniDesc']; ?></td>
                                 <td><?php echo $rowPosted['Date']; ?></td>
                                 <td><?php echo $rowPosted['Closing']; ?></td>
                                 <td><?php echo $rowPosted['Status']; ?></td>
@@ -360,7 +362,7 @@ include('assets/php/postedjobs.php');
                     <optgroup label="Detail to change">
                         <option value="Title" selected="">Title</option>
                         <option value="Location">Job Location</option>
-                        <option value="Description">Description</option>
+                        <option value="MiniDesc">Description</option>
                         <option value="Closing">Closing Date</option>
                     </optgroup>
                 </select>

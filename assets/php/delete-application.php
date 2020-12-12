@@ -10,10 +10,10 @@ if(isset($_POST['delete'])){
 	$query = $connection -> query($deleteStmt);
 	
 	if($query){
-		redirect_to('../../employer.php?reply=success');
+		redirect_to('../../jobseeker.php?reply=success#applied');
 		exit();
 	}else{
-		redirect_to('../../employer.php?reply=error');
+		redirect_to('../../jobseeker.php?reply=error#applied');
 		exit();
 	}
 }

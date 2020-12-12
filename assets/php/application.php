@@ -11,7 +11,10 @@ if(!empty($_FILES['files']['name'][0])){
     $fullname = $_POST['fullname'];
 
     $query = "INSERT INTO `applications` VALUES(NULL, $vacancyId, $ID, '$date')";
-    $result = $connection -> query($query);
+    $result = $connection -> query($query); 
+
+    $query2 = "INSERT INTO `applications_employer` VALUES(NULL, $vacancyId, $ID, '$date')";
+    $result2 = $connection -> query($query2);
 
 	$files = $_FILES['files'];
     $allowed = array('pdf');

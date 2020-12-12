@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include ('assets/php/connection.php');
+include ('assets/php/utils.php');
 include ('assets/php/seeker-credentials.php');
 include ('assets/php/job.php');
 ?>

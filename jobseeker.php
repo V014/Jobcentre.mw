@@ -3,7 +3,6 @@ session_start();
 include ('assets/php/connection.php');
 include ('assets/php/utils.php');
 include ('assets/php/seeker-credentials.php');
-include ('assets/php/appliedjobs.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -103,21 +102,21 @@ include ('assets/php/appliedjobs.php');
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#vacancies"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i></a>
                         <h3 class="mb-3">Seek Job</h3>
                         <p class="text-muted mb-0">Login as a job seeker to find your job today, or tomorrow.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-user-circle-o" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#profile"><i class="fa fa-user-circle-o" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i></a>
                         <h3 class="mb-3">Manage Profile</h3>
                         <p class="text-muted mb-0">Update yout cv and personal details to improve identity.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-tachometer" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i>
-                        <h3 class="mb-3">Monitor Job</h3>
-                        <p class="text-muted mb-0">Receive customized job vacancies and monitor available ones.</p>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#applied"><i class="fa fa-tachometer" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i></a>
+                        <h3 class="mb-3">View Applications</h3>
+                        <p class="text-muted mb-0">View vacancies you have applied for and manage them.</p>
                     </div>
                 </div>
             </div>
@@ -271,7 +270,7 @@ include ('assets/php/appliedjobs.php');
                     <p>Below is a list of vacancies you have applied for. You may delete them but then employers won't be able to view them. If the intended employer has seen the application they may also delete it after collecting your details.</p>
                 </div>
             </div>
-            <form method="post" action="Jobseeker.php">
+            <form method="post" action="assets/php/delete-application.php">
                 <div class="table-responsive table-borderless">
                     <table class="table table-striped table-bordered text-white">
                         <thead>
@@ -286,24 +285,18 @@ include ('assets/php/appliedjobs.php');
                         </thead>
                         <tbody>
                         <?php
-                            if ($resultApplication){
-                                while($rowApplication = $resultApplication -> fetch_assoc()){
-                                    $EmployerID = $rowApplication['EmployerID'];
-                                    // collect company name
-                                    $queryCompany = "SELECT CompanyName, Contact FROM `employer` WHERE `EmployerID` = $EmployerID";
-                                    $resultCompany = $connection -> query($queryCompany);
-                                    $rowCompany = $resultCompany -> fetch_assoc();
-                                    $CompanyName = $rowCompany['CompanyName'];
-                                    $Contact = $rowCompany['Contact'];
+                            $queryApplied = "SELECT v.Title, a.Id, e.CompanyName, v.Date, v.Location, e.Contact FROM vacancies AS v INNER JOIN applications AS a ON a.VacancyID = v.Id INNER JOIN employer AS e ON v.EmployerID = e.UserID";
+                            $resultApplied = $connection -> query($queryApplied);
+                            if ($resultApplied){
+                                while($rowApplied = $resultApplied -> fetch_assoc()){
                         ?>
-                        
                             <tr>
-                                <td><input value="<?php echo $aID; ?>" name="selected" type="radio"></td>
-                                <td><?php echo $rowApplication['Title']; ?></td>
-                                <td><?php echo $CompanyName; ?></td>
-                                <td><?php echo $rowApplication['Date']; ?></td>
-                                <td><?php echo $rowApplication['Location']; ?></td>
-                                <td><?php echo $Contact; ?></td>
+                                <td><input value="<?php echo $rowApplied['Id']; ?>" name="selected" type="radio"></td>
+                                <td><?php echo $rowApplied['Title']; ?></td>
+                                <td><?php echo $rowApplied['CompanyName']; ?></td>
+                                <td><?php echo $rowApplied['Date']; ?></td>
+                                <td><?php echo $rowApplied['Location']; ?></td>
+                                <td><?php echo $rowApplied['Contact']; ?></td>
                             </tr>
 
                             <?php
@@ -364,7 +357,7 @@ include ('assets/php/appliedjobs.php');
                                 echo "No such vacancy available";
                             }
                         } else {
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.Title, v.Description, v.Location, v.Closing FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID WHERE v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.UserID, e.CompanyName, v.Title, v.Description, v.Location, v.Closing FROM vacancies AS v INNER JOIN employer AS e ON e.UserID = v.EmployerID WHERE v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>

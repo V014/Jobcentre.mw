@@ -256,12 +256,6 @@ include('assets/php/postedjobs.php');
                         <div class="form-group col-md-8 offset-md-2">
                             <input class="form-control" type="text" placeholder="Job Title or Skill" name="title" required="">
                         </div>
-                        <div class="form-group col-md-8 offset-md-2" data-toggle="tooltip" data-bs-tooltip="" title="Where job will be conducted">
-                            <select class="form-control" name="jobType">
-                                <option value="Local">Local</option>
-                                <option value="International">International</option>
-                            </select>
-                        </div>
                         <div class="form-group col-md-8 offset-md-2" data-toggle="tooltip" data-bs-tooltip="" title="Location of job">
                             <select class="form-control" name="location">
                                 <optgroup label="Job Location">
@@ -336,7 +330,6 @@ include('assets/php/postedjobs.php');
                             <tr>
                                 <th>Select</th>
                                 <th>Title</th>
-                                <th>Job Type</th>
                                 <th>Location</th>
                                 <th>Description</th>
                                 <th>Date</th>
@@ -351,7 +344,6 @@ include('assets/php/postedjobs.php');
                             <tr>
                                 <td><input value="<?php echo $rowPosted['Id']; ?>" name="selected" type="radio"></td>
                                 <td><?php echo $rowPosted['Title']; ?></td>
-                                <td><?php echo $rowPosted['JobType']; ?></td>
                                 <td><?php echo $rowPosted['Location']; ?></td>
                                 <td><?php echo $rowPosted['MiniDesc']; ?></td>
                                 <td><?php echo $rowPosted['Date']; ?></td>
@@ -366,10 +358,9 @@ include('assets/php/postedjobs.php');
                 </div>
             </div>
             <div class="form-group col-md-4 offset-md-4" style="padding-top: 20px;">
-                <select class="form-control" name="column" data-toggle="tooltip" data-bs-tooltip="" title="Select the column you want to update and write the change, for JobType either Local or International">
+                <select class="form-control" name="column" data-toggle="tooltip" data-bs-tooltip="" title="Select the column you want to update and write the change">
                     <optgroup label="Detail to change">
                         <option value="Title" selected="">Title</option>
-                        <option value="JobType">Job Type</option>
                         <option value="Location">Job Location</option>
                         <option value="MiniDesc">Description</option>
                         <option value="Closing">Closing Date</option>

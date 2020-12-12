@@ -352,7 +352,7 @@ include ('assets/php/appliedjobs.php');
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
                                         <a class="btn btn-sm btn-info" href="application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
-                                        <a class="btn btn-sm btn-success" href="application.php#apply">Apply</a>
+                                        <a class="btn btn-sm btn-success" href="application.php">Apply</a>
                                     </div>
                                 </div>
                             </div>
@@ -384,7 +384,7 @@ include ('assets/php/appliedjobs.php');
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
                                         <a class="btn btn-sm btn-info" href="application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
-                                        <a class="btn btn-sm btn-success" href="application.php#apply">Apply</a>
+                                        <a class="btn btn-sm btn-success" href="application.php">Apply</a>
                                     </div>
                                 </div>
                             </div>

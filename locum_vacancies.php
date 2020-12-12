@@ -100,7 +100,7 @@ include ('assets/php/utils.php');
                     <?php
                         if(isset($_POST['seek']) && !empty($_POST['title'])){
                             $Title = escTxt($connection, $_POST['title']); 
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.Location, v.MiniDesc, v.Closing, v.JobType FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.Location, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
@@ -118,7 +118,6 @@ include ('assets/php/utils.php');
                                     <div class="col-md-3">
                                         <h2><?php echo $rowSeek['OrganisationName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
-                                        <p><strong>Job Type : </strong><?php echo $rowSeek['JobType']; ?></p>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
                                         <a class="btn btn-sm btn-info" href="locum.php#login">View More</a>
@@ -131,7 +130,7 @@ include ('assets/php/utils.php');
                     <?php
                             }
                         } else {
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.MiniDesc, v.Location, v.Closing, v.JobType FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.MiniDesc, v.Location, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
@@ -149,7 +148,6 @@ include ('assets/php/utils.php');
                                     <div class="col-md-3">
                                         <h2><?php echo $rowSeek['OrganisationName']; ?></h2>
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
-                                        <p><strong>Job Type : </strong><?php echo $rowSeek['JobType']; ?></p>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
                                         <a class="btn btn-sm btn-info" href="locum.php#login">View More</a>

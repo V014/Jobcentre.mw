@@ -94,7 +94,7 @@ include ('assets/php/appliedjobs.php');
     <section id="services">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#about"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#carousel"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
                     <h2 class="section-heading">At Your Service</h2>
                     <hr class="my-4" style="filter: contrast(0%);">
                 </div>
@@ -265,7 +265,7 @@ include ('assets/php/appliedjobs.php');
     <section id="applied" class="bg-dark" style="padding: 200px 0px;font-family: 'Open Sans', sans-serif;">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 text-center text-white"><a class="js-scroll-trigger" href="#postjob"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+                <div class="col-lg-12 text-center text-white"><a class="js-scroll-trigger" href="#profile"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
                     <h2 class="section-heading">Applications</h2>
                     <hr class="my-4" style="filter: contrast(0%);">
                     <p>Below is a list of vacancies you have applied for. You may delete them but then employers won't be able to view them. If the intended employer has seen the application they may also delete it after collecting your details.</p>
@@ -352,7 +352,7 @@ include ('assets/php/appliedjobs.php');
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
                                         <a class="btn btn-sm btn-info" href="application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
-                                        <a class="btn btn-sm btn-success" href="application.php">Apply</a>
+                                        <a class="btn btn-sm btn-success" href="application.php?id=<?php echo $rowSeek['Id']; ?>#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>
@@ -384,7 +384,7 @@ include ('assets/php/appliedjobs.php');
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
                                         <a class="btn btn-sm btn-info" href="application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
-                                        <a class="btn btn-sm btn-success" href="application.php">Apply</a>
+                                        <a class="btn btn-sm btn-success" href="application.php?id=<?php echo $rowSeek['Id']; ?>#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>

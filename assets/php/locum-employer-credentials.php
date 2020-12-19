@@ -10,7 +10,7 @@ if($_SESSION['role'] === 'employer') {
     $password = $row1['Password'];
     $role = $row1['Role'];
     // from employer table
-    $query2 = "SELECT * FROM locum_employer WHERE EmployerID = $ID";
+    $query2 = "SELECT * FROM locum_employer WHERE UserID = $ID";
     $result2 = $connection -> query($query2);
     $row2 = $result2 -> fetch_assoc();
     $ceo = $row2['Ceo'];

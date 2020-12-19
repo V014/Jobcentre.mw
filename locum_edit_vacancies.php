@@ -2,10 +2,6 @@
 	session_start();
 	include ('assets/php/connection.php');
 	include('assets/php/locum-postedjobs.php');
-    $rowPosted = $resultsPosted -> fetch_assoc();
-    $description = $rowPosted['Description'];
-    $vacancyID = $rowPosted['Id'];
-    $data = str_replace( '&', '&amp;', $description );
 ?>
 <!DOCTYPE html>
 <html>
@@ -85,6 +81,7 @@
         </ol>
         </div>
     </section>
+    <!--- Description -->
     <section id="description">
         <div class="col-8 offset-2">
             <form method="post" action="assets/php/locum-description-edit.php">
@@ -92,7 +89,7 @@
                     <textarea id="desc" name="desc"><?php echo $data; ?></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success form-control" name="update" value="<?php echo $vacancyID ?>" type="submit">Update</button>
+                    <button class="btn btn-success form-control" name="update" value="<?php echo $vacancyID; ?>" type="submit">Update</button>
                 </div>
             </form>
             <script>

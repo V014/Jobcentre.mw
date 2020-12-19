@@ -14,10 +14,10 @@ if(isset($_POST['update'])){
 	$query = "UPDATE `vacancies` SET `$Column` = '$Replacement' WHERE `Id` = $Selected";
 	$result = $connection -> query($query);
 	if($result){
-		redirect_to("../../employer.php#posted?reply=success"); // redirect user to home page
+		redirect_to("../../employer.php?reply=success#posted"); // redirect user to home page
 		exit();
 	}else{
-		redirect_to("../../employer.php#posted?reply=error"); // redirect user to home page
+		redirect_to("../../employer.php?reply=error#posted"); // redirect user to home page
 		exit();
 	}
 }
@@ -28,10 +28,10 @@ if(isset($_POST['delete'])){
 	$query = deleteInfo($Selected, $table);
 	$result = $connection -> query($query);
 	if($result){
-		redirect_to("../../employer.php#posted?reply=success"); // redirect user to home page
+		redirect_to("../../employer.php?reply=success#posted"); // redirect user to home page
 		exit();
 	}else{
-		redirect_to("../../employer.php#posted?reply=error"); // redirect user to home page
+		redirect_to("../../employer.php?reply=error#posted"); // redirect user to home page
 		exit();
 	}
 }

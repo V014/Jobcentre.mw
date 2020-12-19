@@ -134,7 +134,7 @@ include ('assets/php/utils.php');
 	                        	echo "No such vacancy available";
 	                        }
                         } else {
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.CompanyName, v.Title, v.MiniDesc, v.Description, v.Location, v.Closing FROM vacancies AS v INNER JOIN employer AS e ON e.EmployerID = v.EmployerID WHERE v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.UserID, e.CompanyName, v.Title, v.MiniDesc, v.Description, v.Location, v.Closing FROM vacancies AS v INNER JOIN employer AS e ON e.UserID = v.EmployerID WHERE v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>

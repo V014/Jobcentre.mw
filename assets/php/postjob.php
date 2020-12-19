@@ -12,7 +12,7 @@ if(isset($_POST['post'])){
 	$closing = escTxt($connection, $_POST['closingDate']);
 	$date = date("Y-m-d");
 	// insert into vacancy table
-	$query = "INSERT INTO `vacancies` VALUES(NULL, $ID, '$date', '$closing', '$title', '$location', '$description', '$minidesc', 'Pending', '$jobType')";
+	$query = "INSERT INTO `vacancies` VALUES(NULL, $ID, '$date', '$closing', '$title', '$location', '$description', '$minidesc', 'Pending')";
 	$result = $connection -> query($query);
 	if($result){
 		redirect_to("../../employer.php#posted?reply=success"); // redirect user to home page

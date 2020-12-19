@@ -103,19 +103,19 @@ include ('assets/php/locum-appliedjobs.php');
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#vacancies"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i></a>
                         <h3 class="mb-3">Seek Job</h3>
                         <p class="text-muted mb-0">Login as a job seeker to find your job today, or tomorrow.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-user-circle-o" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#profile"><i class="fa fa-user-circle-o" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i></a>
                         <h3 class="mb-3">Manage Profile</h3>
                         <p class="text-muted mb-0">Update yout cv and personal details to improve identity.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-tachometer" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#applied"><i class="fa fa-tachometer" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i></a>
                         <h3 class="mb-3">Monitor Job</h3>
                         <p class="text-muted mb-0">Receive customized job vacancies and monitor available ones.</p>
                     </div>
@@ -221,34 +221,24 @@ include ('assets/php/locum-appliedjobs.php');
                                 <th>Title</th>
                                 <th>Company</th>
                                 <th>Date</th>
-                                <th>Profession</th>
                                 <th>Location</th>
                                 <th>Contact</th>
-                                <th>Salary</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php
-                            if ($resultApplication){
-                                while($rowApplication = $resultApplication -> fetch_assoc()){
-                                    $EmployerID = $rowApplication['EmployerID'];
-                                    // collect company name
-                                    $queryOrganisation = "SELECT OrganisationName, Contact FROM `locum_employer` WHERE `EmployerID` = $EmployerID";
-                                    $resultOrganisation = $connection -> query($queryOrganisation);
-                                    $rowOrganisation = $resultOrganisation -> fetch_assoc();
-                                    $OrganisationName = $rowOrganisation['OrganisationName'];
-                                    $Contact = $rowOrganisation['Contact'];
+                            $queryApplied = "SELECT v.Title, a.Id, e.OrganisationName, v.Date, v.Location, e.Contact FROM locum_vacancies AS v INNER JOIN locum_applications AS a ON a.VacancyID = v.Id INNER JOIN locum_employer AS e ON v.EmployerID = e.UserID";
+                            $resultApplied = $connection -> query($queryApplied);
+                            if ($resultApplied){
+                                while($rowApplied = $resultApplied -> fetch_assoc()){
                         ?>
-                        
                             <tr>
                                 <td><input value="<?php echo $aID; ?>" name="selected" type="radio"></td>
-                                <td><?php echo $rowApplication['Title']; ?></td>
-                                <td><?php echo $OrganisationName; ?></td>
-                                <td><?php echo $rowApplication['Date']; ?></td>
-                                <td><?php echo $rowApplication['Profession']; ?></td>
-                                <td><?php echo $rowApplication['Location']; ?></td>
-                                <td><?php echo $Contact; ?></td>
-                                <td><?php echo $rowApplication['Salary']; ?></td>
+                                <td><?php echo $rowApplied['Title']; ?></td>
+                                <td><?php echo $rowApplied['OrganisationName']; ?></td>
+                                <td><?php echo $rowApplied['Date']; ?></td>
+                                <td><?php echo $rowApplied['Location']; ?></td>
+                                <td><?php echo $rowApplied['Contact']; ?></td>
                             </tr>
 
                             <?php
@@ -275,7 +265,7 @@ include ('assets/php/locum-appliedjobs.php');
                     <?php
                         if(isset($_POST['seek']) && !empty($_POST['title'])){
                             $Title = escTxt($connection, $_POST['title']); 
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Title, v.Description, v.Location, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.UserID, e.OrganisationName, v.Title, v.Description, v.Location, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.UserID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
@@ -295,7 +285,7 @@ include ('assets/php/locum-appliedjobs.php');
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
                                         <a class="btn btn-sm btn-info" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
-                                        <a class="btn btn-sm btn-success" href="locum_application.php">Apply</a>
+                                        <a class="btn btn-sm btn-success" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>
@@ -304,7 +294,7 @@ include ('assets/php/locum-appliedjobs.php');
                     <?php
                             }
                         } else {
-                            $querySeek = "SELECT v.Id, e.EmployerID, e.OrganisationName, v.Location, v.Title, v.Description, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.EmployerID = v.EmployerID AND v.Status = 'Posted'";
+                            $querySeek = "SELECT v.Id, e.UserID, e.OrganisationName, v.Location, v.Title, v.Description, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.UserID = v.EmployerID AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
@@ -324,7 +314,7 @@ include ('assets/php/locum-appliedjobs.php');
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
                                         <a class="btn btn-sm btn-info" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
-                                        <a class="btn btn-sm btn-success" href="locum_application.php">Apply</a>
+                                        <a class="btn btn-sm btn-success" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>

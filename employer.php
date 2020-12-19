@@ -17,8 +17,11 @@ include('assets/php/postedjobs.php');
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Animated-Pretty-Product-List-v12.css">
     <link rel="stylesheet" href="assets/css/best-carousel-slide.css">
     <link rel="stylesheet" href="assets/css/Google-Style-Login.css">
+    <link rel="stylesheet" href="assets/css/Grid-and-List-view-V10-1.css">
+    <link rel="stylesheet" href="assets/css/Grid-and-List-view-V10.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
@@ -95,7 +98,7 @@ include('assets/php/postedjobs.php');
     <section id="services" style="padding: 220px 0px">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#top"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #ffc107;"></i></a>
+                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#carousel"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #ffc107;"></i></a>
                     <h2 class="section-heading">At Your Service</h2>
                     <hr class="my-4" style="filter: contrast(0%);">
                 </div>
@@ -104,19 +107,19 @@ include('assets/php/postedjobs.php');
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><a href="#postjob" class="js-scroll-trigger"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i></a>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#postjob"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i></a>
                         <h3 class="mb-3">Post Job</h3>
                         <p class="text-muted mb-0">Post a vacany for job seekers to apply.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-user-circle-o" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#profile"><i class="fa fa-user-circle-o" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i></a>
                         <h3 class="mb-3">Manage Profile</h3>
                         <p class="text-muted mb-0">Update your company information easily.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-tachometer" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#applied"><i class="fa fa-tachometer" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i></a>
                         <h3 class="mb-3">Monitor Job</h3>
                         <p class="text-muted mb-0">View vacancy applications and activity.</p>
                     </div>
@@ -127,7 +130,7 @@ include('assets/php/postedjobs.php');
     <!-- Profile -->
     <section id="profile" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
         <div class="text-center login-card">
-            <a class="js-scroll-trigger" href="#top">
+            <a class="js-scroll-trigger" href="#services">
                 <i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;">
                 </i>
             </a>
@@ -247,7 +250,7 @@ include('assets/php/postedjobs.php');
     <section id="postjob" class="p-0" style="background-color: #28a745;padding: 200px 0px;font-family: 'Open Sans', sans-serif;">
         <div class="container-fluid p-0">
             <div class="row" style="padding: 128px 0px;">
-                <div class="col-lg-8 mx-auto text-center"><a class="js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: rgb(254,254,254);"></i></a>
+                <div class="col-lg-8 mx-auto text-center"><a class="js-scroll-trigger" href="#profile"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: rgb(254,254,254);"></i></a>
                     <h2 class="section-heading" style="color: rgb(255,255,255);">Post Job</h2>
                     <hr class="light my-4">
                     <p class="mb-5" style="font-family: 'Open Sans', sans-serif;color: rgb(255,255,255);">Give a description of the job you want to engage with job seeker, you will be able to modify its details after posting aswell.</p>
@@ -382,10 +385,10 @@ include('assets/php/postedjobs.php');
         </form>
     </section>
     <!-- Applied -->
-    <section id="postjob" class="bg-dark" style="padding: 200px 0px;font-family: 'Open Sans', sans-serif;">
+    <section id="applied" class="bg-dark" style="padding: 200px 0px;font-family: 'Open Sans', sans-serif;">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 text-center text-white"><a class="js-scroll-trigger" href="#postjob"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+                <div class="col-lg-12 text-center text-white"><a class="js-scroll-trigger" href="#posted"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
                     <h2 class="section-heading">Applications</h2>
                     <hr class="my-4" style="filter: contrast(0%);">
                     <p>Below is a list of people who hace applied for vacancies you posted.</p>
@@ -399,9 +402,6 @@ include('assets/php/postedjobs.php');
                                 <th>Select</th>
                                 <th>Vacancy</th>
                                 <th>Fullname</th>
-                                <th>Gender</th>
-                                <th data-toggle="tooltip" data-bs-tooltip="" title="Date of birth">Dob</th>
-                                <th>City</th>
                                 <th>Contact</th>
                                 <th>Address</th>
                                 <th>Skills</th>
@@ -410,21 +410,18 @@ include('assets/php/postedjobs.php');
                         </thead>
                         <tbody>
                         <?php
-                            if ($resultSeeker){
-                                while($rowSeeker = $resultSeeker -> fetch_assoc()){
+                            if ($resultApplied){
+                                while($rowApplied = $resultApplied -> fetch_assoc()){
                         ?>
                         
                             <tr>
                                 <td><input value="<?php echo $aID; ?>" name="selected" type="radio"></td>
                                 <td><?php echo $title; ?></td>
-                                <td><?php echo $rowSeeker['Fullname']; ?></td>
-                                <td><?php echo $rowSeeker['Gender']; ?></td>
-                                <td><?php echo $rowSeeker['Dob']; ?></td>
-                                <td><?php echo $rowSeeker['City']; ?></td>
-                                <td><?php echo $rowSeeker['Contact']; ?></td>
-                                <td><?php echo $rowSeeker['Address']; ?></td>
-                                <td><?php echo $rowSeeker['Skills']; ?></td>
-                                <td><?php echo $date; ?></td>
+                                <td><?php echo $rowApplied['Fullname']; ?></td>
+                                <td><?php echo $rowApplied['Contact']; ?></td>
+                                <td><?php echo $rowApplied['Address']; ?></td>
+                                <td><?php echo $rowApplied['Skills']; ?></td>
+                                <td><?php echo $rowApplied['Date']; ?></td>
                             </tr>
 
                             <?php
@@ -464,7 +461,7 @@ include('assets/php/postedjobs.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/creative.js"></script>
 </body>
 
 </html>

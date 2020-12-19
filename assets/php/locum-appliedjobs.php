@@ -1,11 +1,5 @@
 <?php
 $ID = $_SESSION['ID'];
-$queryVacancy = "SELECT VacancyID, `Date` FROM `locum_applications` WHERE SeekerID = $ID";
-$resultVacancy = $connection -> query($queryVacancy);
-$rowVacancy = $resultVacancy -> fetch_assoc();
-$vID = $rowVacancy['VacancyID'];
-$date = $rowVacancy['Date'];
-// collect information on seeker
-$queryApplication = "SELECT * FROM `locum_vacancies` WHERE `Id` = $vID";
-$resultApplication = $connection -> query($queryApplication);
+$queryApplied = "SELECT v.Id, v.Title, v.Date, a.SeekerID, a.VacancyID, a.Id, j.Fullname, j.Contact, j.Address, j.Skills FROM `locum_vacancies` AS v INNER JOIN `locum_applications_employer` AS a ON v.Id = a.VacancyID INNER JOIN `locum_jobseeker` AS j ON a.SeekerID = j.Id WHERE v.EmployerID = $ID";
+$resultApplied = $connection -> query($queryApplied);
 ?>

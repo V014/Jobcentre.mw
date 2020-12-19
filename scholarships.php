@@ -75,22 +75,15 @@
                     <div class="product-container">
                         <div class="row">
                             <div class="col-md-4">
-                                <a href="#"><img class="img-fluid" src="assets/img/graduates.jpg"></a>
+                                <img class="img-fluid" src="assets/img/NRTF-2018-19.jpg">
                             </div>
                             <div class="col-md-8">
-                                <h2><a href="#">PhD Scholarships</a></h2>
-                                <p class="product-description">Finnish Government Offers PhD Scholarships for 2020 2021 academic year. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
+                                <h2><a href="#">NRTD</a></h2>
+                                <p class="product-description">The NEW RELATIONSHIP TRUST FOUNDATION has taken it upon themselves to offer the best chances to those who are lucky to pass their admission process and join their peers in attaining academic excellency. </p>
                                 <a class="btn btn-light" type="button" data-toggle="collapse" data-target="#description">View More</a>
-                                <p id="description" class="collapse"><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
+                                <p id="description" class="collapse"><br>The new relationship trust foundation was established in the early 2000s in contrast with the building up for a future with dedicated visionaries of tomorrow. As of effect of 2004, the foundation made it possible for people around the world to benefit from the offers we have, rather than the foundation seeking for applicants.</p>
+                                <a href="assets/img/NRTF-2018-19.jpg" id="description" class="collapse btn btn-success">view brochure</a>
                             </div>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half"></i>
-                            <a class="small-text" href="#">82 reviews</a>
                         </div>
                     </div>
                 </div>
@@ -98,21 +91,15 @@
                     <div class="product-container">
                         <div class="row">
                             <div class="col-md-4">
-                                <a href="#"><img class="img-fluid" src="assets/img/graduates.jpg"></a>
+                                <img class="img-fluid" src="assets/img/UWCSEA.jpg">
                             </div>
                             <div class="col-md-8">
-                                <h2><a href="#">PhD Scholarships</a></h2>
-                                <p class="product-description">Finnish Government Offers PhD Scholarships for 2020 2021 academic year. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
-                                <a class="btn btn-light" type="button" href="#">View More</a>
+                                <h2><a href="#">UWCSEA</a></h2>
+                                <p class="product-description">The South East Asia government with all its heart has opened its best institutes to the public and to those who are interested to study abroad. It is with great pleasure to introduce our new scholarship programme to the world.</p>
+                                <a class="btn btn-light" type="button" data-toggle="collapse" data-target="#description">View More</a>
+                                <p id="description" class="collapse"><br>The Asian community has seen its development over the years and has seen that it would need the rest of the world to ride the same train that propels them to the future. With our latest scholarships, we hope to enlighten those who seek the future and develpments that will take a nation generations ahead. It all starts with how we handle our scholars and how they see opportunity to develop from outstanding problems.</p>
+                                <a href="assets/img/UWCSEA.jpg" id="description" class="collapse btn btn-success">view brochure</a>
                             </div>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half"></i>
-                            <a class="small-text" href="#">82 reviews</a>
                         </div>
                     </div>
                 </div>
@@ -120,21 +107,15 @@
                     <div class="product-container">
                         <div class="row">
                             <div class="col-md-4">
-                                <a href="#"><img class="img-fluid" src="assets/img/graduates.jpg"></a>
+                                <img class="img-fluid" src="assets/img/SEGi.jpg">
                             </div>
                             <div class="col-md-8">
-                                <h2><a href="#">PhD Scholarships</a></h2>
-                                <p class="product-description">Finnish Government Offers PhD Scholarships for 2020 2021 academic year. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
-                                <a class="btn btn-light" type="button" href="#">View More</a>
+                                <h2><a href="#">SEGi</a></h2>
+                                <p class="product-description">SEGi university group has always taken it upon itself to provide the upmost intuitive programs for people who are ready to develop their intellect through our program. We hope that our scholarship reaches far enough to those who have been seeking for an opportunity as great at this one.</p>
+                                <a class="btn btn-light" type="button" data-toggle="collapse" data-target="#description">View More</a>
+                                <p id="description" class="collapse"><br>SEGi has been a trusted organisation for decades and has been motivated to offer more programs to potential scholars in the devision of public relations and education. It would be nice to see a world where there is a high number of educated people who are ready to make profits from the little resources they can salvage from their environments.</p>
+                                <a href="assets/img/SEGi.jpg" id="description" class="collapse btn btn-success">view brochure</a>
                             </div>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half"></i>
-                            <a class="small-text" href="#">82 reviews</a>
                         </div>
                     </div>
                 </div>

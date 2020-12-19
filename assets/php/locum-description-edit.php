@@ -10,7 +10,7 @@ if(isset($_POST['update'])){
 	$result = $connection -> query($query);
 
 	if($result){
-		redirect_to("../../locum_edit_vacancies.php?reply=success"); // redirect user to home page
+		redirect_to("../../locum_edit_vacancies.php?id=$vacancyID#description"); // redirect user to home page
 		exit();
 	}else{
 		echo "error" . mysqli_error($connection);

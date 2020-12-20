@@ -29,10 +29,13 @@ include ('assets/php/job.php');
                 aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="jobseeker.php">Back</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="jobseeker.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="assets/php/logout.php">Logout</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="vacancies.php">Vacancies</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">FAQ</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Locum</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="about-us.php">About us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">Feedback</a></li>
                 </ul>
             </div>
         </div>
@@ -93,11 +96,17 @@ include ('assets/php/job.php');
     </section>
     <!-- application -->
     <section id="apply" style="background-color: #28a745;">
-        <div class="text-center login-card"><a class="js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+        <div class="login-card">
+            <a class="offset-5 js-scroll-trigger" href="#services">
+                <i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i>
+            </a>
             <p class="profile-name-card">Upload your cv and application letter to apply</p>
             <form class="form-signin" method="post" action="assets/php/application.php" enctype="multipart/form-data"><span class="reauth-email"></span>
+                <label for="vacancyId">Vacancy ID</label>
                 <input class="form-control" type="text" id="inputId" required="" value="<?php echo $vacancyId; ?>" name="vacancyId" data-toggle="tooltip" data-bs-tooltip="" title="Vacancy ID" readonly>
+                <label for="fullname">Fullname</label>
                 <input class="form-control" type="text" id="inputName" required="" value="<?php echo $fullname; ?>" name="fullname" readonly>
+                <label for="compemail">Company's Email</label>
                 <input class="form-control" type="email" id="inputCompanyEmail" required="" value="<?php echo $companyEmail; ?>" name="companyEmail" readonly>
                 <p><em>Before you upload your files, label them like this <strong>"fullname-cv"</strong> or <strong>"firstname-lastname-application-letter".</strong></em></p>
                 <div class="form-group">
@@ -110,9 +119,10 @@ include ('assets/php/job.php');
         		</div>
                 <button class="btn btn-success" type="submit" name="apply">Apply</button>
             </form>
+        </div>
     </section>
     <!-- Contact -->
-    <?php include ('contacts.php'); ?>
+    <?php include ('contact-us.php'); ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

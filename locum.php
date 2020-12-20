@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>locum - Home</title>
+    <title>locum - The Job Centre</title>
     <meta name="description" content="The Job Centre implements intensive search and assessment measures prior to hiring employees directly onto its payroll and subsequently seconding them to clients’ premises. The Job Centre is a registered and approved outsourcing agency by the Ministry of Labour and Manpower Development.">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
@@ -25,14 +25,13 @@
                 aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">About</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item js-scroll-trigger" role="presentation" href="#about">Us</a><a class="dropdown-item js-scroll-trigger" role="presentation" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#carousel">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Login / Register</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum_vacancies.php">Vacancies</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">FAQ</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Main</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="about-us.php">About us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">Feedback</a></li>
                 </ul>
             </div>
         </div>
@@ -82,18 +81,6 @@
             <li data-target="#carousel-1" data-slide-to="2"></li>
             <li data-target="#carousel-1" data-slide-to="3"></li>
         </ol>
-        </div>
-    </section>
-    <!-- About -->
-    <section id="about" style="background-color: #28a745;padding: 220px 0px;">
-        <div class="container">
-            <div class="row">
-                <div class="col offset-lg-8 mx-auto text-center"><a class="js-scroll-trigger" href="#page-top"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: rgb(254,254,254);"></i></a>
-                    <h2 class="text-white section-heading">About</h2>
-                    <hr class="light my-4">
-                    <p class="lead mb-4" style="color: #ffffff;">Our vision is to be the leading, most efficient provider of administrative, technical and industrial staff in Malawi and beyond; offering flexible staffing solutions that build efficiency and productivity, and providing Associates
-                        or Temps with rewarding temporary assignments or careers; and to strengthen the institutional capacity of organizations in Malawi and beyond.<br></p><a class="btn btn-light btn-xl js-scroll-trigger" role="button" href="#services">Get Started!</a></div>
-            </div>
         </div>
     </section>
     <!-- Services -->
@@ -160,7 +147,7 @@
     <!-- Top -->
     <?php include ('top.php'); ?>    
     <!-- Contact -->
-    <?php include ('contacts.php'); ?>
+    <?php include ('contact-us.php'); ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

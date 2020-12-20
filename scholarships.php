@@ -27,10 +27,13 @@
                 aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php#login">Login / Register</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="vacancies.php">Vacancies</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">FAQ</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Locum</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="scholarships.php">Scholarships</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="about-us.php">About us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">Feedback</a></li>
                 </ul>
             </div>
         </div>
@@ -123,7 +126,7 @@
         </div>
     </section>
     <!-- contact -->
-    <?php include ('contacts.php'); ?>
+    <?php include ('contact-us.php'); ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

@@ -21,18 +21,16 @@
 <body id="page-top" style="font-family: 'Open Sans', sans-serif;">
     <!-- navbar -->
     <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/logo.png"></a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#carousel"><img src="assets/img/logo.png"></a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">About</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item js-scroll-trigger" role="presentation" href="#about">Us</a><a class="dropdown-item js-scroll-trigger" role="presentation" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#carousel">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Login / Register</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="vacancies.php">Vacancies</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Locum</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">FAQ</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="about-us.php">About us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">Feedback</a></li>
                 </ul>
             </div>
         </div>
@@ -84,18 +82,6 @@
         </ol>
         </div>
     </section>
-    <!-- About -->
-    <section id="about" style="background-color: #28a745;padding: 220px 0px;">
-        <div class="container">
-            <div class="row">
-                <div class="col offset-lg-8 mx-auto text-center"><a class="js-scroll-trigger" href="#page-top"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: rgb(254,254,254);"></i></a>
-                    <h2 class="text-white section-heading">About</h2>
-                    <hr class="light my-4">
-                    <p class="lead mb-4" style="color: #ffffff;">Our vision is to be the leading, most efficient provider of administrative, technical and industrial staff in Malawi and beyond; offering flexible staffing solutions that build efficiency and productivity, and providing Associates
-                        or Temps with rewarding temporary assignments or careers; and to strengthen the institutional capacity of organizations in Malawi and beyond.<br></p><a class="btn btn-light btn-xl js-scroll-trigger" role="button" href="#services">Get Started!</a></div>
-            </div>
-        </div>
-    </section>
     <!-- Services -->
     <section id="services" style="padding: 200px 0px;">
         <div class="container">
@@ -142,7 +128,7 @@
     <!-- Top -->
     <?php include ('top.php'); ?>    
     <!-- Contact -->
-    <?php include ('contacts.php'); ?>
+    <?php include ('contact-us.php'); ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

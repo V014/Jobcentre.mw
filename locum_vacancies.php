@@ -32,9 +32,12 @@ include ('assets/php/utils.php');
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php#login">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="Scholarships.php">Scholarships</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php#login">Login / Register</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="locum_vacancies.php">Vacancies</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Main</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="about-us.php">About us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">Feedback</a></li>
                 </ul>
             </div>
         </div>

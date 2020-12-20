@@ -21,7 +21,7 @@ if(isset($_POST['login'])){
 		redirect_to("../../locum_$role.php");
 		exit();
 	}else{
-		redirect_to("../../locum.php#login");
+		redirect_to("../../locum.php?reply=error#login");
 		exit();
 	}
 }
@@ -39,7 +39,7 @@ if(isset($_POST['register'])){
 	}
 	// if there is a similar email in the db tell the user
 	if(!empty($usedEmail) && $email == $usedEmail){
-		redirect_to("../../locum.php#login?reply=emailused"); // redirect user to home page
+		redirect_to("../../locum.php?reply=used#login"); // redirect user to home page
 		exit();
 	}else{
 		// insert the user cridentials

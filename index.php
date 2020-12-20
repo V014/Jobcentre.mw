@@ -1,3 +1,14 @@
+<?php
+if(isset($_GET['reply'])){
+    if($_GET['reply'] === "used"){
+        echo "<script>alert('Email address already in use!')</script>";
+    }
+
+    if($_GET['reply'] === "error"){
+        echo "<script>alert('Wrong credentials!')</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -95,19 +106,19 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="vacancies.php"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i></a>
                         <h3 class="mb-3">Job Seek</h3>
                         <p class="text-muted mb-0">Login as a job seeker to find your job today, or tomorrow.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-clipboard" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#login"><i class="fa fa-clipboard" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i></a>
                         <h3 class="mb-3">Post Job</h3>
                         <p class="text-muted mb-0">Login as an employer to post vacanies for seekers to apply.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-graduation-cap" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="scholarships.php"><i class="fa fa-graduation-cap" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #28a745;"></i></a>
                         <h3 class="mb-3">Scholarships</h3>
                         <p class="text-muted mb-0">Search for potential scholarships that you might stumble upon.</p>
                     </div>

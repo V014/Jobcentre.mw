@@ -8,7 +8,7 @@ if(isset($_POST['delete'])){
     if($unlink){
         redirect_to("../../locum_employer.php#downloads");
     }else{
-        redirect_to("../../locum_employer.php#downloads");
+        redirect_to("../../locum_employer.php?reply=error#downloads");
     }
 }
 ?>

@@ -39,7 +39,7 @@ if(isset($_POST['register'])){
 	}
 	// if there is a similar email in the db tell the user
 	if(!empty($usedEmail) && $email == $usedEmail){
-		redirect_to("../../index.php?reply=emailused#login"); // redirect user to home page
+		redirect_to("../../index.php?reply=used#login"); // redirect user to home page
 		exit();
 	}else{
 		// insert the user cridentials

@@ -4,6 +4,15 @@ include ('assets/php/connection.php');
 include ('assets/php/employer-credentials.php');
 include ('assets/php/applied.php');
 include('assets/php/postedjobs.php');
+if(isset($_GET['reply'])){
+    if($_GET['reply'] === "used"){
+        echo "<script>alert('Operation success!')</script>";
+    }
+
+    if($_GET['reply'] === "error"){
+        echo "<script>alert('Nothing to delete!')</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,14 +44,13 @@ include('assets/php/postedjobs.php');
                 aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#profile">Profile</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Jobs</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item js-scroll-trigger" role="presentation" href="#postjob">Post Job</a><a class="dropdown-item js-scroll-trigger" role="presentation" href="#posted">Posted Jobs</a>
-                    </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="#carousel">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="assets/php/logout.php">Logout</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">FAQ</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="vacancies.php">Vacancies</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Main</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="about-us.php">About us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">Feedback</a></li>
                 </ul>
             </div>
         </div>
@@ -345,7 +353,7 @@ include('assets/php/postedjobs.php');
                             while($rowPosted = $resultsPosted -> fetch_assoc()){
                         ?>
                             <tr>
-                                <td><input value="<?php echo $rowPosted['Id']; ?>" name="selected" type="radio"></td>
+                                <td><input value="<?php echo $rowPosted['Id']; ?>" name="selected" type="radio" required=""></td>
                                 <td><?php echo $rowPosted['Title']; ?></td>
                                 <td><?php echo $rowPosted['Location']; ?></td>
                                 <td><?php echo $rowPosted['MiniDesc']; ?></td>
@@ -394,7 +402,7 @@ include('assets/php/postedjobs.php');
                     <p>Below is a list of people who hace applied for vacancies you posted.</p>
                 </div>
             </div>
-            <form method="post" action="assets/php/delete-application.php?table=applications">
+            <form method="post" action="assets/php/delete-application.php">
                 <div class="table-responsive table-borderless">
                     <table class="table table-striped table-bordered text-white">
                         <thead>
@@ -415,7 +423,7 @@ include('assets/php/postedjobs.php');
                         ?>
                         
                             <tr>
-                                <td><input value="<?php echo $aID; ?>" name="selected" type="radio"></td>
+                                <td><input value="<?php echo $aID; ?>" name="selected" type="radio" required=""></td>
                                 <td><?php echo $title; ?></td>
                                 <td><?php echo $rowApplied['Fullname']; ?></td>
                                 <td><?php echo $rowApplied['Contact']; ?></td>
@@ -454,7 +462,7 @@ include('assets/php/postedjobs.php');
         </div>
     </section>
     <!-- Contact -->
-    <?php include ('contacts.php'); ?>
+    <?php include ('contact-us.php'); ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

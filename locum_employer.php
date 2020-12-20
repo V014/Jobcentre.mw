@@ -4,6 +4,15 @@ include ('assets/php/connection.php');
 include ('assets/php/locum-employer-credentials.php');
 include ('assets/php/locum-applied.php');
 include('assets/php/locum-postedjobs.php');
+if(isset($_GET['reply'])){
+    if($_GET['reply'] === "used"){
+        echo "<script>alert('Operation success!')</script>";
+    }
+
+    if($_GET['reply'] === "error"){
+        echo "<script>alert('Nothing to delete!')</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,14 +41,13 @@ include('assets/php/locum-postedjobs.php');
                 aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#profile">Profile</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Jobs</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item js-scroll-trigger" role="presentation" href="#postjob">Post Job</a><a class="dropdown-item js-scroll-trigger" role="presentation" href="#posted">Posted Jobs</a>
-                    </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="assets/php/locum-logout.php">Logout</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">FAQ</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="#carousel">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="assets/php/logout.php">Logout</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum_vacancies.php">Vacancies</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Main</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="about-us.php">About us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="feedback.php">Feedback</a></li>
                 </ul>
             </div>
         </div>
@@ -104,19 +112,19 @@ include('assets/php/locum-postedjobs.php');
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#postjob"><i class="fa fa-search" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i></a>
                         <h3 class="mb-3">Post Job</h3>
                         <p class="text-muted mb-0">Post a vacany for job seekers to apply.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-user-circle-o" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#profile"><i class="fa fa-user-circle-o" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i></a>
                         <h3 class="mb-3">Manage Profile</h3>
                         <p class="text-muted mb-0">Update your company information easily.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center">
-                    <div class="mx-auto service-box mt-5"><i class="fa fa-tachometer" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i>
+                    <div class="mx-auto service-box mt-5"><a class="js-scroll-trigger" href="#applied"><i class="fa fa-tachometer" data-aos="zoom-in" data-aos-duration="200" style="font-size: 64px;color: #ffc107;"></i></a>
                         <h3 class="mb-3">Monitor Job</h3>
                         <p class="text-muted mb-0">View vacancy applications and activity.</p>
                     </div>
@@ -278,7 +286,7 @@ include('assets/php/locum-postedjobs.php');
                             while($rowPosted = $resultsPosted -> fetch_assoc()){
                         ?>
                             <tr>
-                                <td><input value="<?php echo $rowPosted['Id']; ?>" name="selected" type="radio"></td>
+                                <td><input value="<?php echo $rowPosted['Id']; ?>" name="selected" type="radio" required=""></td>
                                 <td><?php echo $rowPosted['Title']; ?></td>
                                 <td><?php echo $rowPosted['Location']; ?></td>
                                 <td><?php echo $rowPosted['Date']; ?></td>
@@ -392,7 +400,7 @@ include('assets/php/locum-postedjobs.php');
         </div>
     </section>
     <!-- Contact -->
-    <?php include ('contacts.php'); ?>
+    <?php include ('contact-us.php'); ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

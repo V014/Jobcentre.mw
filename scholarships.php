@@ -28,7 +28,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php#login">Login / Register</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php#login">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="registration.php">Register</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="vacancies.php">Vacancies</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Locum</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="scholarships.php">Scholarships</a></li>

@@ -32,7 +32,8 @@ include ('assets/php/utils.php');
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php#login">Login / Register</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php#login">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum_registration.php">Register</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="locum_vacancies.php">Vacancies</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Main</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
@@ -43,51 +44,7 @@ include ('assets/php/utils.php');
         </div>
     </nav>
     <!-- Carousel -->
-    <section id="carousel" style="padding: 0px 0px;">
-        <div class="carousel slide" data-ride="carousel" id="carousel-1">
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/banner-1.jpg&quot;);padding: 230px;">
-                        <h1 class="text-uppercase hero-title"><strong>Malawi's most reliable job site</strong></h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Find yourself a job today as a jobseeker, post vacancies as a company and recruit, or browse scholarships as a student.</p>
-                        <a class="btn btn-success btn-xl js-scroll-trigger" role="button" href="#services">Find Out More</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-1.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Seek Jobs</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Use our platform to seek for vacancies that are near you or overly available. To get started, login or sign up with us and we'll walk you through.</p>
-                        <a href="#vacancies" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-2.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Become An Employer</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Do you have a top notch company but lack recruits to do the important parts? Use our platform to post vacancies for job seekers to apply.</p>
-                        <a href="index.php#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-3.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Scholarships</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Are you looking to get enrolled abroad?<br>This is the right platform to seek for scholarships without hustle.</p>
-                        <a href="scholarships.php" class="btn btn-success btn-xl js-scroll-trigger" role="button">Learn More</a>
-                    </div>
-            </div>
-        </div>
-        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-1" data-slide-to="1"></li>
-            <li data-target="#carousel-1" data-slide-to="2"></li>
-            <li data-target="#carousel-1" data-slide-to="3"></li>
-        </ol>
-        </div>
-    </section>
+    <?php include ('locum_carousel.php'); ?>
     <!-- Vacancies -->
     <section>
         <div class="container" id="vacancies" style="padding: 100px 0px;">
@@ -105,7 +62,8 @@ include ('assets/php/utils.php');
                             $Title = escTxt($connection, $_POST['title']); 
                             $querySeek = "SELECT v.Id, e.UserID, e.OrganisationName, v.Title, v.Description, v.Location, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.UserID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
-                            while($rowSeek = $resultSeek -> fetch_assoc()){
+                            if($resultSeek){
+                                while($rowSeek = $resultSeek -> fetch_assoc()){
                     ?>
                     <div class="row product-list dev">
                         <div class="col-sm-12 col-md-12 product-item animation-element">
@@ -131,6 +89,9 @@ include ('assets/php/utils.php');
                         </div>
                     </div>
                     <?php
+                                }
+                            } else {
+                                echo "<p style=color: red;>No such vacancy available</p>";
                             }
                         } else {
                             $querySeek = "SELECT v.Id, e.UserID, e.OrganisationName, v.Title, v.Description, v.MiniDesc, v.Location, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.UserID = v.EmployerID AND v.Status = 'Posted'";

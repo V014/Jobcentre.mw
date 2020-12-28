@@ -44,51 +44,42 @@ include ('assets/php/seeker-credentials.php');
             </div>
         </div>
     </nav>
-    <!-- Carousel -->
+    <!--- carousel -->
     <section id="carousel" style="padding: 0px 0px;">
         <div class="carousel slide" data-ride="carousel" id="carousel-1">
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/banner-1.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Welcome <?php echo $fullname; ?></h1>
+                    <div class="jumbotron pulse animated hero-nature carousel-hero" style="background-image: url(&quot;assets/img/banner-1.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Welcome <?php echo $fullname; ?><br></strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Add to your experience by updating your profile, be informed that we only allow .pdf for documents.</p>
-                        <a href="#profile" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
+                        <p class="hero-subtitle">Malawi's most reliable job site<br>Find your perfect job today.</p>
+                        <a href="#login" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-1.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Seek Jobs</h1>
+                    <div class="jumbotron pulse animated hero-photography carousel-hero" style="background-image: url(&quot;assets/img/slider-1.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Contact An Employer</strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Use our platform to seek for vacancies that are near you or overly available. To get started, login or sign up with us and we'll walk you through.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
+                        <p class="hero-subtitle">Once you apply for a vacancy, the employer will receive your application documents.</p>
+                        <a href="#login" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-2.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Become An Employer</h1>
+                    <div class="jumbotron pulse animated hero-technology carousel-hero" style="background-image: url(&quot;assets/img/slider-2.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Browse Vacanices</strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Do you have a top notch company but lack recruits to do the important parts? Use our platform to post vacancies for job seekers to apply.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
+                        <p class="hero-subtitle">While you're logged in, scroll down the page or click the Seek job icon to browse.</p>
+                        <a href="#login" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-3.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Scholarships</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Are you looking to get enrolled abroad?<br>This is the right platform to seek for scholarships without hustle.</p>
-                        <a href="scholarships.php" class="btn btn-success btn-xl js-scroll-trigger" role="button">Learn More</a>
-                    </div>
             </div>
-        </div>
-        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
-        <ol
+            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
+            <ol
                 class="carousel-indicators">
-            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-1" data-slide-to="1"></li>
-            <li data-target="#carousel-1" data-slide-to="2"></li>
-            <li data-target="#carousel-1" data-slide-to="3"></li>
-        </ol>
+                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-1" data-slide-to="1"></li>
+                <li data-target="#carousel-1" data-slide-to="2"></li>
+                </ol>
         </div>
     </section>
     <!-- Services -->
@@ -126,19 +117,23 @@ include ('assets/php/seeker-credentials.php');
     </section>
     <!-- Profile -->
     <section id="profile" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
-        <div class="text-center login-card">
-            <a class="js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
-            <form class="text-center form-signin" method="post" action="assets/php/seeker-profile.php"><span class="reauth-email"> </span>
-                <p>Hi <strong><?php echo $fullname; ?></strong> Change your details here.</p>
+        <div class="login-card">
+            <a class="js-scroll-trigger offset-5" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+            <form class="form-signin" method="post" action="assets/php/seeker-profile.php"><span class="reauth-email"> </span>
+                <p class="text-center">Hi <strong><?php echo $fullname; ?></strong> Change your details here.</p>
+                <label for="email">Email</label>
                 <div class="form-group">
                     <input class="form-control" type="email" id="inputEmail" required="" placeholder="Email" value="<?php echo $email; ?>" name="email" style="font-family: 'Open Sans', sans-serif;">
                 </div>
+                <label for="password">Password</label>
                 <div class="form-group">
                     <input class="form-control" type="password" id="inputPassword" required="" placeholder="Password" value="<?php echo $password; ?>" style="font-family: 'Open Sans', sans-serif;" name="password">
                 </div>
+                <label for="fullname">Fullname</label>
                 <div class="form-group">
                     <input class="form-control" type="text" value="<?php echo $fullname; ?>" placeholder="Fullname" name="fullname">
                 </div>
+                <label for="gender">Gender</label>
                 <div class="form-group">
                     <select class="form-control" name="gender">
                         <optgroup label="Gender">
@@ -148,9 +143,11 @@ include ('assets/php/seeker-credentials.php');
                         </optgroup>
                     </select>
                 </div>
+                <label for="date of birth">Date of birth</label>
                 <div class="form-group">
                     <input class="form-control" data-toggle="tooltip" data-bs-tooltip="" type="date" name="dob" title="Date of Birth" value="<?php echo $dob; ?>">
                 </div>
+                <label for="location">Location</label>
                 <div class="form-group">
                     <select class="form-control" data-toggle="tooltip" data-bs-tooltip="" name="location" title="Your current location">
                         <optgroup label="Location">
@@ -167,6 +164,7 @@ include ('assets/php/seeker-credentials.php');
                         </optgroup>
                     </select>
                 </div>
+                <label for="nationality">Nationality</label>
                 <div class="form-group">
                     <select class="form-control" name="nationality">
                         <optgroup label="Nationality">
@@ -183,9 +181,11 @@ include ('assets/php/seeker-credentials.php');
                         </optgroup>
                     </select>
                 </div>
+                <label for="city">City</label>
                 <div class="form-group">
                     <input class="form-control" type="text" placeholder="City | Province" name="city" value="<?php echo $city; ?>">
                 </div>
+                <label for="industry">Industry</label>
                 <div class="form-group">
                     <select class="form-control" name="industry">
                         <optgroup label="industry">
@@ -249,12 +249,15 @@ include ('assets/php/seeker-credentials.php');
                         </optgroup>
                     </select>
                 </div>
+                <label for="number">Number</label>
                 <div class="form-group">
                     <input class="form-control" type="number" placeholder="Contact" value="<?php echo $contact; ?>" name="contact">
                 </div>
+                <label for="Address">Address</label>
                 <div class="form-group">
                     <textarea class="form-control" placeholder="Address..." name="address"><?php echo "$address"; ?></textarea>
                 </div>
+                <label for="skills">Skills</label>
                 <div class="form-group">
                     <textarea class="form-control" data-toggle="tooltip" data-bs-tooltip="" placeholder="Skills..." name="skills" title="Atleast 3 skills should be provided."><?php echo "$skills"; ?></textarea>
                 </div>

@@ -10,9 +10,11 @@ if(isset($_POST['delete'])){
 	$query = $connection -> query($deleteStmt);
 	
 	if($query){
-		redirect_to('../../locum_employer.php?reply=deleted#applied');
+		$_SESSION['reply'] = "deleted";
+		redirect_to('../../locum_employer.php?#applied');
 		exit();
 	}else{
+		$_SESSION['reply'] = "delerror";
 		redirect_to('../../locum_employer.php?reply=error#applied');
 		exit();
 	}

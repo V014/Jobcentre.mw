@@ -1,4 +1,7 @@
 <?php
+session_start();
+include ('connection.php');
+include ('utils.php');
 if(isset($_POST['update'])){
 	$ID = $_SESSION['ID'];
 	$email = escTxt($connection, $_POST['email']);
@@ -20,14 +23,17 @@ if(isset($_POST['update'])){
 	$result2 = $connection -> query($query2);
 	if($result){
 		if($result2){
+			$_SESSION['reply'] = "updated";
 			redirect_to("../../locum_jobseeker.php#profile");
 			exit();
 		}else{
-			redirect_to("../../locum_jobseeker.php#profile?reply=error1");
+			$_SESSION['reply'] = "error";
+			redirect_to("../../locum_jobseeker.php#profile");
 			exit();
 		}
 	}else{
-		redirect_to("../../locum_jobseeker.php#profile?reply=emailused"); 
+		$_SESSION['reply'] = "used";
+		redirect_to("../../locum_jobseeker.php#profile"); 
 		exit();
 	}
 }

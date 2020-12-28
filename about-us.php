@@ -25,7 +25,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php#login">Login / Register</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php#login">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="registration.php">Register</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="vacancies.php">Vacancies</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Locum</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
@@ -36,34 +37,7 @@
         </div>
     </nav>
     <!-- carousel -->
-    <section id="carousel" style="padding: 0px 0px;">
-        <div class="carousel slide" data-ride="carousel" id="carousel-1">
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <div class="jumbotron pulse animated hero-nature carousel-hero" style="background-image: url(&quot;assets/img/slider-1.jpg&quot;);padding: 220px">
-                        <h1 class="hero-title">Seek Jobs</h1>
-                        <p class="hero-subtitle">To quickly search availability of a job, you can simply go to our vacancies page and type in the title of the job. If you happen to find the job you are looking for, you'd have to login or register to see more details which you'd need to apply for the job.</p><a href="index."><button class="btn btn-success btn-lg" type="button">Learn&nbsp; More</button></a></div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated hero-photography carousel-hero" style="background-image: url(&quot;assets/img/slider-2.jpg&quot;);padding: 220px">
-                        <h1 class="hero-title">Become An Employer</h1>
-                        <p class="hero-subtitle">Do you have a top notch company but lack recuits to do the important parts? Use our platform to post vacancies for job seekers to apply. If you want to post a job, you'd have to login or register to provide details of the type of skills you need from potential employees.</p><a href="index.html#login"><button class="btn btn-success btn-lg" type="button">Get Started</button></a></div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated hero-technology carousel-hero" style="background-image: url(&quot;assets/img/slider-3.jpg&quot;);padding: 220px">
-                        <h1 class="hero-title">Scholarships</h1>
-                        <p class="hero-subtitle">Are you looking to get enrolled abroad?<br>This is the right platform to seek for scholarships without hustle. Go to our scholarship page to view the schools that have openings that you could plan and apply for.</p><a href="scholarships.html"><button class="btn btn-success btn-lg" type="button">Learn&nbsp; More</button></a></div>
-                </div>
-            </div>
-            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
-            <ol
-                class="carousel-indicators">
-                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-1" data-slide-to="1"></li>
-                <li data-target="#carousel-1" data-slide-to="2"></li>
-                </ol>
-        </div>
-    </section>
+    <?php include ('carousel.php'); ?> 
     <!-- About -->
     <section id="feedback" style="padding: 200px 0px;">
         <div class="container text-center">

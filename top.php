@@ -1,7 +1,7 @@
 <section id="top" style="padding: 200px 0px;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#featured"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #ffc107;"></i></a>
+                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#login"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #ffc107;"></i></a>
                     <h2 class="section-heading">Top</h2>
                     <hr class="my-4" style="filter: contrast(0%);">
                 </div>

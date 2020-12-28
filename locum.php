@@ -37,7 +37,8 @@ if(isset($_GET['reply'])){
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#carousel">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Login / Register</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum_registration.php">Register</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum_vacancies.php">Vacancies</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">Main</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
@@ -48,52 +49,7 @@ if(isset($_GET['reply'])){
         </div>
     </nav>
     <!-- Carousel -->
-    <section id="carousel" style="padding: 0px 0px;">
-        <div class="carousel slide" data-ride="carousel" id="carousel-1">
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/doctor-banner.jpg&quot;);padding: 230px;">
-                        <h1 class="text-uppercase hero-title"><strong>Locum Job Centre</strong></h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Find yourself a locum job today as a jobseeker, post locum vacancies as a company and recruit locum employees.</p>
-                        <a class="btn btn-success btn-xl js-scroll-trigger" role="button" href="#services">Find Out More</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-1.jpg&quot;);padding: 230px;">
-                        <h1 class="text-uppercase hero-title">Seek Jobs</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Use our platform to seek for locum vacancies that are near you or overly available. To get started, login or sign up with us and we'll walk you through.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-2.jpg&quot;);padding: 230px;">
-                        <h1 class="text-uppercase hero-title">Become A locum Employer</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Do you have a top notch company but lack recruits to do the important parts? Use our platform to post vacancies for job seekers to apply.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-3.jpg&quot;);padding: 230px;">
-                        <h1 class="text-uppercase hero-title">Scholarships</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Are you looking to get enrolled abroad?<br>This is the right platform to seek for scholarships without hustle.</p>
-                        <a href="scholarships.php" class="btn btn-success btn-xl js-scroll-trigger" role="button">Learn More</a>
-                    </div>
-            </div>
-        </div>
-        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
-        <ol
-                class="carousel-indicators">
-            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-1" data-slide-to="1"></li>
-            <li data-target="#carousel-1" data-slide-to="2"></li>
-            <li data-target="#carousel-1" data-slide-to="3"></li>
-        </ol>
-        </div>
-    </section>
+    <?php include ('locum_carousel.php'); ?>
     <!-- Services -->
     <section id="services" style="padding: 200px 0px;">
         <div class="container">

@@ -4,6 +4,17 @@ include ('assets/php/connection.php');
 include ('assets/php/utils.php');
 include ('assets/php/locum-seeker-credentials.php');
 include ('assets/php/locum-appliedjobs.php');
+if(isset($_SESSION['reply'])) {
+    if($_SESSION['reply'] === "updated"){
+        $reply = "Profile updated";
+    }
+    if($_SESSION['reply'] === "error"){
+        $reply = "Failed to updated";
+    }
+    if($_SESSION['reply'] === "used"){
+        $reply = "Email already in use";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,46 +61,46 @@ include ('assets/php/locum-appliedjobs.php');
         <div class="carousel slide" data-ride="carousel" id="carousel-1">
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/banner-1.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Welcome <?php echo $fullname; ?></h1>
+                    <div class="jumbotron pulse animated hero-nature carousel-hero" style="background-image: url(&quot;assets/img/banner-1.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Welcome <?php echo $fullname; ?><br></strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Add to your experience by updating your profile, be informed that we only allow .pdf for documents.</p>
-                        <a href="#profile" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
+                        <p class="hero-subtitle">Malawi's most reliable job site<br>Find your perfect job today.</p>
+                        <a href="#login" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-1.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Seek Jobs</h1>
+                    <div class="jumbotron pulse animated hero-photography carousel-hero" style="background-image: url(&quot;assets/img/slider-7.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Contact An Employer</strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Use our platform to seek for vacancies that are near you or overly available. To get started, login or sign up with us and we'll walk you through.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
+                        <p class="hero-subtitle">Once you apply for a vacancy, the employer will receive your application documents.</p>
+                        <a href="#login" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-2.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Become An Employer</h1>
+                    <div class="jumbotron pulse animated hero-technology carousel-hero" style="background-image: url(&quot;assets/img/slider-8.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Browse Vacanices</strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Do you have a top notch company but lack recruits to do the important parts? Use our platform to post vacancies for job seekers to apply.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
+                        <p class="hero-subtitle">While you're logged in, scroll down the page or click the Seek job icon to browse.</p>
+                        <a href="#vacancies" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-3.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Scholarships</h1>
+                    <div class="jumbotron pulse animated hero-technology carousel-hero" style="background-image: url(&quot;assets/img/slider-4.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Browse Scholarships</strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Are you looking to get enrolled abroad?<br>This is the right platform to seek for scholarships without hustle.</p>
-                        <a href="scholarships.php" class="btn btn-success btn-xl js-scroll-trigger" role="button">Learn More</a>
+                        <p class="hero-subtitle">The scholarship page has downloadable posts.</p>
+                        <a href="scholarships.php" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
+                </div>
             </div>
-        </div>
-        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
-        <ol
+            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
+            <ol
                 class="carousel-indicators">
-            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-1" data-slide-to="1"></li>
-            <li data-target="#carousel-1" data-slide-to="2"></li>
-            <li data-target="#carousel-1" data-slide-to="3"></li>
-        </ol>
+                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-1" data-slide-to="1"></li>
+                <li data-target="#carousel-1" data-slide-to="2"></li>
+                <li data-target="#carousel-1" data-slide-to="3"></li>
+                </ol>
         </div>
     </section>
     <!-- Services -->
@@ -127,20 +138,27 @@ include ('assets/php/locum-appliedjobs.php');
     </section>
     <!-- Profile -->
     <section id="profile" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
-        <div class="text-center login-card"><a class="js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
-            <form class="text-center form-signin" method="post" action="assets/php/locum-seeker-profile.php"><span class="reauth-email"> </span>
+        <div class="login-card"><a class="js-scroll-trigger offset-5" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+            <form class="form-signin" method="post" action="assets/php/locum-seeker-profile.php"><span class="reauth-email"> </span>
                 <p>Hi <strong><?php echo $fullname; ?></strong> Change your details here.</p>
+                <?php if (isset($_SESSION['reply'])){ ?>
+                        <p style="color: red;"><?= $reply; ?></p>
+                    <?php unset($_SESSION['reply']); } ?>
+                <label for="email">Email</label>
                 <div class="form-group">
                     <input class="form-control" type="email" id="inputEmail" required="" placeholder="Email" value="<?php echo $email; ?>" name="email" style="font-family: 'Open Sans', sans-serif;">
                 </div>
+                <label for="password">Password</label>
                 <div class="form-group">
                     <input class="form-control" type="password" id="inputPassword" required="" placeholder="Password" value="<?php echo $password; ?>" style="font-family: 'Open Sans', sans-serif;" name="password">
                 </div>
+                <label for="fullname">Fullname</label>
                 <div class="form-group">
                     <input class="form-control" type="text" value="<?php echo $fullname; ?>" placeholder="Fullname" name="fullname">
                 </div>
+                <label for="gender">Gender</label>
                 <div class="form-group">
-                    <select class="form-control" name="gender" data-toggle="tooltip" data-bs-tooltip="" title="Your gender">
+                    <select class="form-control" name="gender">
                         <optgroup label="Gender">
                             <option value="<?php echo "$gender"; ?>"><?php echo "$gender (selected)"; ?>
                             <option value="Male">Male</option>
@@ -148,25 +166,11 @@ include ('assets/php/locum-appliedjobs.php');
                         </optgroup>
                     </select>
                 </div>
+                <label for="date of birth">Date of birth</label>
                 <div class="form-group">
                     <input class="form-control" data-toggle="tooltip" data-bs-tooltip="" type="date" name="dob" title="Date of Birth" value="<?php echo $dob; ?>">
                 </div>
-                <div class="form-group">
-                    <select class="form-control" name="nationality" data-toggle="tooltip" data-bs-tooltip="" title="Your nationality">
-                        <optgroup label="Nationality">
-                            <option value="<?php echo "$nationality"; ?>"><?php echo "$nationality (selected)"; ?>
-                            <option value="Emirates">Emirates</option>
-                            <option value="Kuwait">Kuwait</option>
-                            <option value="Malawian">Malawian</option>
-                            <option value="Moldovian">Moldovian</option>
-                            <option value="Namibian">Namibian</option>
-                            <option value="Omanian">Omanian</option>
-                            <option value="Other">Other</option>
-                            <option value="Qatari">Qatari</option>
-                            <option value="Emirites">Emirites</option>
-                        </optgroup>
-                    </select>
-                </div>
+                <label for="location">Location</label>
                 <div class="form-group">
                     <select class="form-control" data-toggle="tooltip" data-bs-tooltip="" name="location" title="Your current location">
                         <optgroup label="Location">
@@ -183,14 +187,36 @@ include ('assets/php/locum-appliedjobs.php');
                         </optgroup>
                     </select>
                 </div>
-                <div class="form-group"><input class="form-control" type="text" placeholder="City | Province" name="city" value="<?php echo $city; ?>">
+                <label for="nationality">Nationality</label>
+                <div class="form-group">
+                    <select class="form-control" name="nationality">
+                        <optgroup label="Nationality">
+                            <option value="<?php echo "$nationality"; ?>"><?php echo "$nationality (selected)"; ?>
+                            <option value="Emirates">Emirates</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Malawian">Malawian</option>
+                            <option value="Moldovian">Moldovian</option>
+                            <option value="Namibian">Namibian</option>
+                            <option value="Omanian">Omanian</option>
+                            <option value="Other">Other</option>
+                            <option value="Qatari">Qatari</option>
+                            <option value="Emirites">Emirites</option>
+                        </optgroup>
+                    </select>
                 </div>
+                <label for="city">City</label>
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="City | Province" name="city" value="<?php echo $city; ?>">
+                </div>
+                <label for="contact">Contact</label>
                 <div class="form-group">
                     <input class="form-control" type="number" placeholder="Contact" value="<?php echo $contact; ?>" name="contact">
                 </div>
+                <label for="Address">Address</label>
                 <div class="form-group">
                     <textarea class="form-control" placeholder="Address..." name="address"><?php echo "$address"; ?></textarea>
                 </div>
+                <label for="profession">Profession</label>
                 <div class="form-group">
                     <select class="form-control" name="profession" data-toggle="tooltip" data-bs-tooltip="" title="Your profession">
                         <optgroup label="Profession">
@@ -250,6 +276,7 @@ include ('assets/php/locum-appliedjobs.php');
                         </tbody>
                     </table>
                 </div>
+                <input type="submit" name="delete" class="btn btn-danger form-control" value="Delete">
         </form>
     </section>
     <!-- vacancies -->
@@ -270,6 +297,8 @@ include ('assets/php/locum-appliedjobs.php');
                             $querySeek = "SELECT v.Id, e.UserID, e.OrganisationName, v.Title, v.Description, v.Location, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.UserID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
+                                $_SESSION['vId'] = $rowSeek['Id'];
+                                $vId = $_SESSION['vId'];
                     ?>
                     <div class="row product-list dev">
                         <div class="col-sm-12 col-md-12 product-item animation-element">
@@ -286,8 +315,8 @@ include ('assets/php/locum-appliedjobs.php');
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <a class="btn btn-sm btn-info" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
-                                        <a class="btn btn-sm btn-success" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>#apply">Apply</a>
+                                        <a class="btn btn-sm btn-info" href="locum_application.php">View More</a>
+                                        <a class="btn btn-sm btn-success" href="locum_application.php#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>
@@ -299,6 +328,8 @@ include ('assets/php/locum-appliedjobs.php');
                             $querySeek = "SELECT v.Id, e.UserID, e.OrganisationName, v.Location, v.Title, v.Description, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.UserID = v.EmployerID AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
+                                $_SESSION['vId'] = $rowSeek['Id'];
+                                $vId = $_SESSION['vId'];
                     ?>
                     <div class="row product-list dev">
                         <div class="col-sm-12 col-md-12 product-item animation-element">
@@ -315,8 +346,8 @@ include ('assets/php/locum-appliedjobs.php');
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <a class="btn btn-sm btn-info" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
-                                        <a class="btn btn-sm btn-success" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>#apply">Apply</a>
+                                        <a class="btn btn-sm btn-info" href="locum_application.php">View More</a>
+                                        <a class="btn btn-sm btn-success" href="locum_application.php#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>
@@ -331,7 +362,7 @@ include ('assets/php/locum-appliedjobs.php');
         </div>
     </section>
     <!-- contact -->
-    <?php include ('contacts.php'); ?>
+    <?php include ('contact-us.php'); ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

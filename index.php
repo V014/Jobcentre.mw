@@ -1,11 +1,17 @@
 <?php
-if(isset($_GET['reply'])){
-    if($_GET['reply'] === "used"){
-        echo "<script>alert('Email address already in use!')</script>";
+session_start();
+if(isset($_SESSION['reply'])){
+    if($_SESSION['reply'] === "error"){
+        $_SESSION['attempts'] += 1;
+        $reply = "Invalid credentials!";
     }
 
-    if($_GET['reply'] === "error"){
-        echo "<script>alert('Wrong credentials!')</script>";
+    if(isset($_SESSION['locked'])){
+    $difference = time() - $_SESSION['locked'];
+        if($difference > 10 ){
+            unset($_SESSION['locked']);
+            unset($_SESSION['attempts']);
+        }
     }
 }
 ?>
@@ -36,7 +42,8 @@ if(isset($_GET['reply'])){
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#carousel">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Login / Register</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="registration.php">Register</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="vacancies.php">Vacancies</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Locum</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="scholarships.php">Scholarships</a></li>
@@ -46,58 +53,13 @@ if(isset($_GET['reply'])){
             </div>
         </div>
     </nav>
-    <!-- Carousel -->
-    <section id="carousel" style="padding: 0px 0px;">
-        <div class="carousel slide" data-ride="carousel" id="carousel-1">
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/banner-1.jpg&quot;);padding: 230px;">
-                        <h1 class="text-uppercase hero-title"><strong>Malawi's most reliable job site</strong></h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Find yourself a job today as a jobseeker, post vacancies as a company and recruit, or browse scholarships as a student.</p>
-                        <a class="btn btn-success btn-xl js-scroll-trigger" role="button" href="#services">Find Out More</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-1.jpg&quot;);padding: 230px;">
-                        <h1 class="text-uppercase hero-title">Seek Jobs</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Use our platform to seek for vacancies that are near you or overly available. To get started, login or sign up with us and we'll walk you through.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-2.jpg&quot;);padding: 230px;">
-                        <h1 class="text-uppercase hero-title">Become An Employer</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Do you have a top notch company but lack recruits to do the important parts? Use our platform to post vacancies for job seekers to apply.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-3.jpg&quot;);padding: 230px;">
-                        <h1 class="text-uppercase hero-title">Scholarships</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Are you looking to get enrolled abroad?<br>This is the right platform to seek for scholarships without hustle.</p>
-                        <a href="scholarships.php" class="btn btn-success btn-xl js-scroll-trigger" role="button">Learn More</a>
-                    </div>
-            </div>
-        </div>
-        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
-        <ol
-                class="carousel-indicators">
-            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-1" data-slide-to="1"></li>
-            <li data-target="#carousel-1" data-slide-to="2"></li>
-            <li data-target="#carousel-1" data-slide-to="3"></li>
-        </ol>
-        </div>
-    </section>
+    <!--- carousel -->
+    <?php include ('carousel.php'); ?> 
     <!-- Services -->
     <section id="services" style="padding: 200px 0px;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#about"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+                <div class="col-lg-12 text-center"><a class="js-scroll-trigger" href="#carousel"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
                     <h2 class="section-heading">At Your Service</h2>
                     <hr class="my-4" style="filter: contrast(0%);">
                 </div>
@@ -126,15 +88,41 @@ if(isset($_GET['reply'])){
             </div>
         </div>
     </section>
-    <!-- Login | Register -->
+    <!-- Login -->
     <section id="login" style="background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-attachment: fixed;">
-        <div class="text-center login-card"><a class="js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
+        <div class="login-card"><a class="js-scroll-trigger offset-5" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
             <p class="profile-name-card">With these credentials, either login or register with us</p>
-            <form class="form-signin" method="post" action="assets/php/user-login-register.php"><span class="reauth-email"> </span><input class="form-control" type="email" id="inputEmail" required="" placeholder="Email address" name="email"><input class="form-control" type="password" id="inputPassword" required="" placeholder="Password" name="password"><select class="form-control" name="role"><optgroup label="Role"><option value="jobseeker" selected="">Job Seeker</option><option value="employer">Employer</option></optgroup></select>
-                <div
-                    class="checkbox" style="padding: 10px;">
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" required=""><label class="form-check-label" for="formCheck-1">Accept terms</label></div>
-        </div><button class="btn btn-success" type="submit" name="login">Login</button><button class="btn btn-warning text-white" type="submit" name="register">Register</button></form><a class="forgot-password" href="#">Forgot your password?</a></div>
+            <?php if (isset($_SESSION['reply'])){ ?>
+                <p style="color: red; text-align: center;"><?= $reply; ?></p>
+            <?php } ?>
+            <form class="form-signin" method="post" action="assets/php/user-login.php">
+                <span class="reauth-email"> </span>
+                <label for="email">Email</label>
+                <input class="form-control" type="email" id="Email" required="" placeholder="Email address" name="email">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" id="Password" required="" placeholder="Password" name="password">
+                <label for="role">Role</label>
+                <select class="form-control" name="role">
+                    <optgroup label="Role">
+                        <option value="jobseeker" selected="">Job Seeker</option>
+                        <option value="employer">Employer</option>
+                    </optgroup>
+                </select>
+                <div class="checkbox" style="padding: 10px;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="formCheck-1" required="">
+                        <label class="form-check-label" for="formCheck-1">Accept terms</label>
+                    </div>
+                </div>
+                <?php 
+                    if(isset($_SESSION['attempts']) && $_SESSION['attempts'] > 2){
+                        $_SESSION['locked'] = time();
+                        echo "Please wait for 10 seconds";
+                    }else {
+                ?>
+                <button class="btn btn-success" type="submit" name="login">Login</button>
+                <?php unset($_SESSION['reply']); } ?>
+            </form>
     </section>
     <!-- Top -->
     <?php include ('top.php'); ?>    

@@ -55,51 +55,42 @@ if(isset($_GET['reply'])){
             </div>
         </div>
     </nav>
-    <!-- Carousel -->
+    <!--- carousel -->
     <section id="carousel" style="padding: 0px 0px;">
         <div class="carousel slide" data-ride="carousel" id="carousel-1">
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/banner-1.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Welcome <?php echo $companyName; ?></h1>
+                    <div class="jumbotron pulse animated hero-nature carousel-hero" style="background-image: url(&quot;assets/img/banner-1.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Welcome <?php echo $companyName; ?><br></strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Add to your experience by updating your profile, visible vacancies to seek are labeled posted under status.</p>
-                        <a href="#profile" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
+                        <p class="hero-subtitle">Malawi's most reliable job site<br>Find your perfect job today.</p>
+                        <a href="#login" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-1.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Seek Jobs</h1>
+                    <div class="jumbotron pulse animated hero-photography carousel-hero" style="background-image: url(&quot;assets/img/slider-1.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Contact An Employer</strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Use our platform to seek for vacancies that are near you or overly available. To get started, login or sign up with us and we'll walk you through.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
+                        <p class="hero-subtitle">Once you apply for a vacancy, the employer will receive your application documents.</p>
+                        <a href="#login" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-2.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Become An Employer</h1>
+                    <div class="jumbotron pulse animated hero-technology carousel-hero" style="background-image: url(&quot;assets/img/slider-2.jpg&quot;);padding: 220px 0px;">
+                        <h1 class="text-uppercase"><strong>Browse Vacanices</strong></h1>
                         <hr class="light my-4">
-                        <p class="hero-subtitle">Do you have a top notch company but lack recruits to do the important parts? Use our platform to post vacancies for job seekers to apply.</p>
-                        <a href="#login" class="btn btn-success btn-xl js-scroll-trigger" role="button">Get Started</a>
+                        <p class="hero-subtitle">While you're logged in, scroll down the page or click the Seek job icon to browse.</p>
+                        <a href="#login" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="jumbotron pulse animated carousel-hero" style="background-image: url(&quot;assets/img/slider-3.jpg&quot;);padding: 230px;">
-                        <h1 class="hero-title">Scholarships</h1>
-                        <hr class="light my-4">
-                        <p class="hero-subtitle">Are you looking to get enrolled abroad?<br>This is the right platform to seek for scholarships without hustle.</p>
-                        <a href="scholarships.php" class="btn btn-success btn-xl js-scroll-trigger" role="button">Learn More</a>
-                    </div>
             </div>
-        </div>
-        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
-        <ol
+            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
+            <ol
                 class="carousel-indicators">
-            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-1" data-slide-to="1"></li>
-            <li data-target="#carousel-1" data-slide-to="2"></li>
-            <li data-target="#carousel-1" data-slide-to="3"></li>
-        </ol>
+                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-1" data-slide-to="1"></li>
+                <li data-target="#carousel-1" data-slide-to="2"></li>
+                </ol>
         </div>
     </section>
     <!-- Services -->

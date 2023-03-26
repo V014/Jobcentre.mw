@@ -1,6 +1,6 @@
 <?php
 if(isset($_SESSION['ID'])){
-	$vId = $_SESSION['vId'];
+	$vId = $_GET['id'];
 	$queryJob = "SELECT v.Id, v.EmployerID, v.Description, v.Title, v.Location, e.OrganisationName FROM `locum_vacancies` AS v INNER JOIN `locum_employer` AS e ON v.EmployerID = e.UserID WHERE v.Id = $vId";
 	$resultJob = $connection -> query($queryJob);
 	while($rowJob = $resultJob -> fetch_assoc()){

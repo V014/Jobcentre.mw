@@ -1,5 +1,4 @@
 <?php
-session_destroy(); // end previous session
 session_start(); // start new one
 include('connection.php');
 include('utils.php'); 

@@ -28,7 +28,7 @@ include ('assets/php/locum-job.php');
                 aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-align-justify"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum_jobseeker.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="assets/php/logout.php">Logout</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="jobseeker.php#vacancies">Vacancies</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="locum.php">Locum</a></li>
@@ -54,8 +54,7 @@ include ('assets/php/locum-job.php');
         <div class="login-card"><a class="offset-5 js-scroll-trigger" href="#services"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
             <p class="profile-name-card">Upload your cv and application letter to apply</p>
             <form class="form-signin" method="post" action="assets/php/locum-application.php" enctype="multipart/form-data"><span class="reauth-email"></span>
-                <label for="vacancyId">Vacancy ID</label>
-                <input class="form-control" type="text" id="inputId" required="" value="<?php echo $vacancyId; ?>" name="vacancyId" data-toggle="tooltip" data-bs-tooltip="" title="Vacancy ID" readonly>
+                <input class="form-control" type="text" id="inputId" required="" value="<?php echo $vacancyId; ?>" name="vacancyId" hidden>
                 <label for="fullname">Fullname</label>
                 <input class="form-control" type="text" id="inputName" required="" value="<?php echo $fullname; ?>" name="fullname" readonly>
                 <label for="compemail">Organisation's Email</label>
@@ -74,6 +73,7 @@ include ('assets/php/locum-job.php');
     </section>
     <!-- Contact -->
     <?php include ('contact-us.php'); ?>
+    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

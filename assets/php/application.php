@@ -56,10 +56,12 @@ if(!empty($_FILES['files']['name'][0])){
     } // foreach
 
     if(!empty($uploaded)){
-        redirect_to("../../jobseeker.php?reply=success");
+        $_SESSION['reply'] = "submited";
+        redirect_to("../../jobseeker.php#applied");
     }
 
     if(!empty($failed)){
-        redirect_to("../../jobseeker.php?reply=error");
+        $_SESSION['reply'] = "suberror";
+        redirect_to("../../jobseeker.php#applied");
     }
 }

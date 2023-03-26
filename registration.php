@@ -1,11 +1,8 @@
 <?php
-if(isset($_GET['reply'])){
-    if($_GET['reply'] === "used"){
-        echo "<script>alert('Email address already in use!')</script>";
-    }
-
-    if($_GET['reply'] === "error"){
-        echo "<script>alert('Wrong credentials!')</script>";
+session_start();
+if(isset($_SESSION['reply'])){
+    if($_SESSION['reply'] === "suberror"){
+        $reply = "Try again later!";
     }
 }
 ?>
@@ -49,12 +46,17 @@ if(isset($_GET['reply'])){
     </nav>
     <!--- carousel -->
     <?php include ('carousel.php'); ?>
-        <!-- Register -->
-    <section id="register" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;">
+    <section class="text-center">
+        <button class="btn btn-success btn-lg" type="button" data-toggle="collapse" data-target="#seeker">Job Seeker</button>
+        <button class="btn btn-dark btn-lg" type="button" data-toggle="collapse" data-target="#employer">Employer</button>
+    </section>
+<!-- Job seeker -->
+    <section id="seeker" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-2.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;" class="collapse">
         <div class="login-card">
             <a class="js-scroll-trigger offset-5" href="#carousel"><i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;"></i></a>
-            <form class="form-signin" method="post" action="assets/php/register.php"><span class="reauth-email"> </span>
-                <p class="text-center">Fill these details below.</p>
+            <form class="form-signin" method="post" action="assets/php/user-registration.php">
+                <span class="reauth-email"> </span>
+                <p class="text-center">Job seekers form below.</p>
                 <label for="email">Email</label>
                 <div class="form-group">
                     <input class="form-control" type="email" id="inputEmail" required="" placeholder="Email" name="email">
@@ -81,23 +83,21 @@ if(isset($_GET['reply'])){
                     <input class="form-control" data-toggle="tooltip" data-bs-tooltip="" type="date" name="dob" title="Date of Birth">
                 </div>
                 <label for="location">Location</label>
+                <select class="form-control" data-toggle="tooltip" data-bs-tooltip="" name="location" title="Your current location">
+                    <optgroup label="Location">
+                        <option value="Dubai">Dubai</option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Moldova">Moldova</option>
+                        <option value="Namibia">Namibia</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Other">Other</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="UAE">UAE</option>
+                    </optgroup>
+                </select>
                 <div class="form-group">
-                    <select class="form-control" data-toggle="tooltip" data-bs-tooltip="" name="location" title="Your current location">
-                        <optgroup label="Location">
-                            <option value="Dubai">Dubai</option>
-                            <option value="Kuwait">Kuwait</option>
-                            <option value="Malawi">Malawi</option>
-                            <option value="Moldova">Moldova</option>
-                            <option value="Namibia">Namibia</option>
-                            <option value="Oman">Oman</option>
-                            <option value="Other">Other</option>
-                            <option value="Qatar">Qatar</option>
-                            <option value="UAE">UAE</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <label for="nationality">Nationality</label>
-                <div class="form-group">
+                    <label for="nationality">Nationality</label>
                     <select class="form-control" name="nationality">
                         <optgroup label="Nationality">
                             <option value="Emirates">Emirates</option>
@@ -191,9 +191,134 @@ if(isset($_GET['reply'])){
                 <div class="form-group">
                     <textarea class="form-control" data-toggle="tooltip" data-bs-tooltip="" placeholder="Atleast 3 Skills..." name="skills" title="Atleast 3 skills should be provided."></textarea>
                 </div>
-                <button class="btn btn-success" type="submit" name="update">Register</button>
-                </form>
-                </div>
+                <button class="btn btn-success" type="submit" name="register">Register</button>
+            </form>
+        </div>
+    </section>
+<!-- emplpoyer -->
+    <section id="employer" style="font-family: 'Open Sans', sans-serif;background-image: url(&quot;assets/img/banner-3.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-position: top;background-attachment: fixed;" class="collapse">
+    <div class="text-center login-card">
+        <a class="js-scroll-trigger" href="#services">
+            <i class="fa fa-chevron-circle-up" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="400" style="font-size: 40px;color: #28a745;">
+            </i>
+        </a>
+
+        <form class="text-center form-signin" method="post" action="assets/php/employer-profile.php"><span class="reauth-email"> </span>
+            <p>Company form below</p>
+            <div class="form-group">
+                <input class="form-control" type="email" id="inputEmail" required="" placeholder="Email address" name="email" style="font-family: 'Open Sans', sans-serif;">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" id="inputPassword" required="" placeholder="Password" style="font-family: 'Open Sans', sans-serif;" name="password">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Cheif executive officer" name="ceo">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Company Name" name="companyName">
+            </div>
+            
+            <div class="form-group">
+                <select class="form-control" name="industry">
+                    <optgroup label="Industry">
+                        <option value="Administration">Administration</option>
+                        <option value="Agriculture">Agriculture</option>
+                        <option value="Art">Arts, culture &amp; Design</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Business">Business, Management &amp; Startups</option>
+                        <option value="Communication">Communication</option>
+                        <option value="Construction">Construction</option>
+                        <option value="Education">Education</option>
+                        <option value="Embassy">Embassy</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Food">Food Manufacturers &amp; Distributors</option>
+                        <option value="General Labor">General Labor</option>
+                        <option value="Government">Government</option>
+                        <option value="Health">Health Care</option>
+                        <option value="Hospitality">Hospitality</option>
+                        <option value="HR">Human Resource</option>
+                        <option value="IT">Information Technology</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Law">Law</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="ManufacturingComp">Manufacturing Company</option>
+                        <option value="MarketRegulation">Market Regulation</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Mathematics">Mathematics, Life &amp; Physical Science</option>
+                        <option value="Media">Media</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Mining">Mining</option>
+                        <option value="Nonprofit">Nonprofit &amp; Social Service</option>
+                        <option value="Pharmaceuticals">Pharmaceuticals</option>
+                        <option value="Policy">Policy &amp; Politics</option>
+                        <option value="Procurement">Procurement</option>
+                        <option value="Publications">Publications</option>
+                        <option value="Purchasing">Purchasing Procurement</option>
+                        <option value="Estate">Real Estate</option>
+                        <option value="Recruitment">Recruitment Agency</option>
+                        <option value="Religion">Religious Organisation</option>
+                        <option value="Research">Research</option>
+                        <option value="Resturant">Resturant</option>
+                        <option value="Retail">Retail</option>
+                        <option value="RuralDev">Rural Development</option>
+                        <option value="Science">Science &amp; Biotech</option>
+                        <option value="Security">Security</option>
+                        <option value="Skilled">Skilled Labour</option>
+                        <option value="Sports">Sports &amp; Leisure</option>
+                        <option value="Supply">Supply Chain</option>
+                        <option value="Education">Teaching / Education</option>
+                        <option value="Telecommunications">Telecommunications</option>
+                        <option value="Tourism">Tourism</option>
+                        <option value="Training">Training</option>
+                        <option value="TrainingInst">Training Institution</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="University">University</option>
+                        <option value="Vocation">Vocational Training</option>
+                        <option value="Warehousing">Warehousing</option>
+                        <option value="Water">Water &amp; Sanitation</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="organisationType" style="font-family: 'Open Sans', sans-serif;">
+                    <optgroup label="Organisation Type">
+                        <option value="Private">Private</option>
+                        <option value="Public">Public</option>
+                        <option value="Government">Government</option>
+                        <option value="SemiGovernment">Semi-Government</option>
+                        <option value="NGO">NGO</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="address" placeholder="Address"></textarea>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="location">
+                    <optgroup label="Location">
+                        <option value="Dubai">Dubai</option><option value="Kuwait">Kuwait</option>
+                        <option value="Malawi">Malawi</option><option value="Moldova">Moldova</option>
+                        <option value="Namibia">Namibia</option><option value="Oman">Oman</option>
+                        <option value="Other">Other</option><option value="Qatar">Qatar</option>
+                        <option value="UAE">UAE</option>
+                    </optgroup>
+                </select>
+            </div>
+        <div class="form-group">
+            <input class="form-control" name="city" type="text" placeholder="City | Province"></div>
+            <div class="form-group">
+                <input class="form-control" type="tel" name="contact" placeholder="Contact">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Company Website" name="website">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="description" placeholder="Company Description..."></textarea>
+            </div>
+            <button class="btn btn-success" type="submit" name="register">Register</button>
+        </form>
+    </div>   
     </section> 
     <!-- Contact -->
     <?php include ('contact-us.php'); ?>

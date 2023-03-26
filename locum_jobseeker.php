@@ -276,7 +276,7 @@ if(isset($_SESSION['reply'])) {
                         </tbody>
                     </table>
                 </div>
-                <input type="submit" name="delete" class="btn btn-danger form-control" value="Delete">
+                <input type="submit" name="delete" class="btn btn-danger form-control col-md-4 offset-md-4" value="Delete">
         </form>
     </section>
     <!-- vacancies -->
@@ -297,8 +297,6 @@ if(isset($_SESSION['reply'])) {
                             $querySeek = "SELECT v.Id, e.UserID, e.OrganisationName, v.Title, v.Description, v.Location, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.UserID = v.EmployerID WHERE v.Title LIKE '%$Title%' AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
-                                $_SESSION['vId'] = $rowSeek['Id'];
-                                $vId = $_SESSION['vId'];
                     ?>
                     <div class="row product-list dev">
                         <div class="col-sm-12 col-md-12 product-item animation-element">
@@ -315,8 +313,8 @@ if(isset($_SESSION['reply'])) {
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <a class="btn btn-sm btn-info" href="locum_application.php">View More</a>
-                                        <a class="btn btn-sm btn-success" href="locum_application.php#apply">Apply</a>
+                                        <a class="btn btn-sm btn-info" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
+                                        <a class="btn btn-sm btn-success" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>
@@ -328,8 +326,6 @@ if(isset($_SESSION['reply'])) {
                             $querySeek = "SELECT v.Id, e.UserID, e.OrganisationName, v.Location, v.Title, v.Description, v.MiniDesc, v.Closing FROM locum_vacancies AS v INNER JOIN locum_employer AS e ON e.UserID = v.EmployerID AND v.Status = 'Posted'";
                             $resultSeek = $connection -> query($querySeek);
                             while($rowSeek = $resultSeek -> fetch_assoc()){
-                                $_SESSION['vId'] = $rowSeek['Id'];
-                                $vId = $_SESSION['vId'];
                     ?>
                     <div class="row product-list dev">
                         <div class="col-sm-12 col-md-12 product-item animation-element">
@@ -346,8 +342,8 @@ if(isset($_SESSION['reply'])) {
                                         <strong><p style="padding-top: 10px;"><?php echo $rowSeek['Title']; ?></p></strong>
                                         <p><strong>Location : </strong><?php echo $rowSeek['Location']; ?></p>
                                         <p><strong>Closing : </strong><?php echo $rowSeek['Closing']; ?></p>
-                                        <a class="btn btn-sm btn-info" href="locum_application.php">View More</a>
-                                        <a class="btn btn-sm btn-success" href="locum_application.php#apply">Apply</a>
+                                        <a class="btn btn-sm btn-info" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>">View More</a>
+                                        <a class="btn btn-sm btn-success" href="locum_application.php?id=<?php echo $rowSeek['Id']; ?>#apply">Apply</a>
                                     </div>
                                 </div>
                             </div>

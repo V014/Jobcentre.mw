@@ -3,6 +3,31 @@ session_start();
 include ('assets/php/connection.php');
 include ('assets/php/utils.php');
 include ('assets/php/seeker-credentials.php');
+if(isset($_SESSION['reply'])){
+    if($_SESSION['reply'] === "success"){
+        $reply = "Operation success";
+    }
+
+    if($_SESSION['reply'] === "delerror"){
+        $reply = "Nothing to delete!";
+    }
+
+    if($_SESSION['reply'] === "deleted"){
+        $reply = "Record deleted!";
+    }
+
+    if($_SESSION['reply'] === "submited"){
+        $reply = "Application sent!";
+    }
+
+    if($_SESSION['reply'] === "suberror"){
+        $reply = "Try again later!";
+    }
+
+    if($_SESSION['reply'] === "registered"){
+        $reply = "Welcome you have been successfully registered!";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,6 +78,9 @@ include ('assets/php/seeker-credentials.php');
                         <h1 class="text-uppercase"><strong>Welcome <?php echo $fullname; ?><br></strong></h1>
                         <hr class="light my-4">
                         <p class="hero-subtitle">Malawi's most reliable job site<br>Find your perfect job today.</p>
+                        <?php if (isset($_SESSION['reply'])){ ?>
+                        <p style="color: blue;"><?= $reply; ?></p>
+                        <?php unset($_SESSION['reply']); } ?>
                         <a href="#login" class="btn btn-success btn-lg js-scroll-trigger">Get Started</a>
                     </div>
                 </div>
@@ -273,6 +301,9 @@ include ('assets/php/seeker-credentials.php');
                     <h2 class="section-heading">Applications</h2>
                     <hr class="my-4" style="filter: contrast(0%);">
                     <p>Below is a list of vacancies you have applied for. You may delete them but then employers won't be able to view them. If the intended employer has seen the application they may also delete it after collecting your details.</p>
+                    <?php if (isset($_SESSION['reply'])){ ?>
+                        <p style="color: red;"><?= $reply; ?></p>
+                    <?php unset($_SESSION['reply']); } ?>
                 </div>
             </div>
             <form method="post" action="assets/php/delete-application.php">
@@ -398,6 +429,7 @@ include ('assets/php/seeker-credentials.php');
     </section>
     <!-- contact -->
     <?php include ('contact-us.php'); ?>
+    <!-- scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
